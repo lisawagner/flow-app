@@ -1,0 +1,8 @@
+.flowNavBar {
+  background: var(--bg-color-primary);
+}
+
+.flowNavBar .navlinks {
+  display: flex;
+  flex-direction: column;
+}
