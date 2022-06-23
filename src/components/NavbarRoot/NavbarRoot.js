@@ -2,7 +2,8 @@ import React from 'react'
 import NavbarHeader from './NavbarHeader'
 import NavbarInfoHub from './NavbarInfoHub'
 import NavbarMenu from './NavbarMenu'
-import NavbarPriorities from './NavbarPriorities'
+// import NavbarPriorities from './NavbarPriorities'
+
 // styles
 import styles from './NavbarRoot.module.css'
 
