@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 
 // components
-
+import Layout from './components/Layout/Layout'
 
 // pages
 import Home from './pages/Home/Home'
@@ -14,8 +14,8 @@ import Inbox from './pages/Inbox/Inbox'
 import Streams from './pages/Streams/Streams'
 import Tasks from './pages/Tasks/Tasks'
 import Teams from './pages/Teams/Teams'
-import Layout from './components/Layout/Layout';
-
+import AddStream from './pages/AddStream/AddStream'
+import SingleStream from './pages/SingleStream/SingleStream'
 
 function App() {
   return (
@@ -28,6 +28,8 @@ function App() {
             <Route path="/tasks" element={<Tasks />} />
             <Route path="/teams" element={<Teams />} />
             <Route path="/streams" element={<Streams />} />
+            <Route path="/streams/:id" element={<SingleStream />} />
+            <Route path="/new" element={<AddStream />} />
             <Route path="/inbox" element={<Inbox />} />
             <Route path="/*" element={<Home />} />
           </Routes>
