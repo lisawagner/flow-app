@@ -1,8 +1,13 @@
 import React from 'react'
+// components
+import PageTopBar from '../../components/PageTopBar/PageTopBar'
 
-const Streams = () => {
+const Streams = ({ title }) => {
   return (
-    <div>Streams</div>
+    <>
+      <PageTopBar title={title} />
+      <p>Streams Content</p> 
+    </>
   )
 }
 
