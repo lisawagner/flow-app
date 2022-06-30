@@ -1,4 +1,5 @@
 import React from 'react'
+import ToolTip from '../ToolTip/ToolTip';
 // styles
 import styles from './NavbarInfoHub.module.css'
 import { RiInformationLine } from "react-icons/ri";
@@ -8,7 +9,9 @@ import { RiInformationLine } from "react-icons/ri";
 const NavbarInfoHub = () => {
   return (
     <div>
-      <RiInformationLine className={styles.infoHubIcon}/>
+      <ToolTip content="Hello!" id="infoHub">
+        <RiInformationLine className={styles.infoHubIcon}/>
+      </ToolTip>
     </div>
   )
 }
