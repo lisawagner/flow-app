@@ -1,25 +1,13 @@
-import { useState, useEffect, useRef } from 'react'
-import { createPortal } from 'react-dom'
+// styles
 import styles from './ToolTip.module.css'
 
-const modalRoot = document.getElementById("infoHub")
-
-const ToolTip = ({ children, content }) => {
-  const [isVisible, setIsVisible] = useState(false)
-
-
+const ToolTip = (props) => {
 
   return (
     <div className={styles.toolTipContainer}>
-      <div
-        onMouseEnter={() => setIsVisible(true)}
-        onMouseLeave={() => setIsVisible(false)}
-      >
-        {children}
+      <div className={`${styles.toolTipWrap} ${styles[props.direction]}`}>
+        {props.content}
       </div>
-      {isVisible && (
-        <div className={styles.toolTipRight}>{content}</div>
-      )}
     </div>
   )
 }

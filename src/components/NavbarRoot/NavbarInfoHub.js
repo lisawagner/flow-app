@@ -1,17 +1,32 @@
-import React from 'react'
-import ToolTip from '../ToolTip/ToolTip';
+import { useState } from 'react'
+
 // styles
 import styles from './NavbarInfoHub.module.css'
 import { RiInformationLine } from "react-icons/ri";
 
-// add tooltip
+// components
+import ToolTip from '../ToolTip/ToolTip';
+
 
 const NavbarInfoHub = () => {
+  const [isVisible, setIsVisible] = useState(false)
+
   return (
     <div>
-      <ToolTip content="Hello!" id="infoHub">
-        <RiInformationLine className={styles.infoHubIcon}/>
-      </ToolTip>
+      <span
+        onMouseEnter={() => setIsVisible(!isVisible)}
+        onMouseLeave={() => setIsVisible(!isVisible)}
+      >
+        <RiInformationLine className={styles.infoHubIcon}/>  
+      </span>
+
+      {isVisible && (
+        <ToolTip
+          direction="right"
+          content="Flow | A Project Management App Created by Lisa Wagner"
+        />
+      )}
+      
     </div>
   )
 }

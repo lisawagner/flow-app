@@ -1,18 +1,85 @@
-.toolTipContainer {
-  position: relative;
-  display: inline-block;
 
+/* Custom properties */
+:root {
+  --tooltip-text-color: white;
+  --tooltip-margin: 16px;
+  --tooltip-arrow-size: 6px;
 }
 
-.toolTipRight{
-  position: absolute;
+/* Tooltip */
+.toolTipContainer {
   display: inline-block;
-  top: 160%;
-  left: -30%;
-  /* left: calc(100% + 5px); */
-  transform: translateY(-90%);
-  background: gray;
-  color: white;
-  padding: 0.5em 1em;
-  border-radius: 5px;
+  position: fixed;
+}
+.toolTipWrap {
+  position: absolute;
+  border-radius: 3px;
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  padding: 20px;
+  color: var(--tooltip-text-color);
+  background: var(--accent-color);
+
+  line-height: 1;
+  z-index: 100;
+  white-space: nowrap;
+}
+
+/* CSS border triangles */
+.toolTipWrap::before {
+  content: " ";
+  left: 50%;
+  border: solid transparent;
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-width: var(--tooltip-arrow-size);
+  margin-left: calc((var(--tooltip-arrow-size)) * -1);
+}
+
+/* Direction: Top */
+.toolTipWrap.top {
+  top: calc(var(--tooltip-margin) * -1);
+}
+.toolTipWrap.top::before {
+  top: 100%;
+  border-top-color: var(--accent-color);
+}
+
+/* Direction: Right */
+.toolTipWrap.right { 
+  left: calc(100% + var(--tooltip-margin));
+  /* top: -10%;
+  transform: translateX(0) translateY(10%); */
+}
+.toolTipWrap.right::before {
+  left: calc(var(--tooltip-arrow-size) * -1);
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+  border-right-color:  var(--accent-color);
+}
+
+/* Direction: Bottom */
+.toolTipWrap.bottom {
+  bottom: calc(var(--tooltip-margin) * -1);
+}
+.toolTipWrap.bottom::before {
+  bottom: 100%;
+  border-bottom-color:  var(--accent-color);
+}
+
+/* Direction: Left */
+.toolTipWrap.left {
+  left: auto;
+  right: calc(100% + var(--tooltip-margin));
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+}
+.toolTipWrap.left::before {
+  left: auto;
+  right: calc(var(--tooltip-arrow-size) * -2);
+  top: 50%;
+  transform: translateX(0) translateY(-50%);
+  border-left-color:  var(--accent-color);
 }
