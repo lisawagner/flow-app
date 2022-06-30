@@ -18,8 +18,7 @@ import Tasks from './pages/Tasks/Tasks'
 import Teams from './pages/Teams/Teams'
 import AddStream from './pages/AddStream/AddStream'
 import SingleStream from './pages/SingleStream/SingleStream'
-
-
+import UserProfile from './pages/UserProfile/UserProfile'
 
 function App() {
   const { title } = useTitle()
@@ -60,6 +59,11 @@ function App() {
               <Route path="/inbox" element={
                 <TitleWrapper title='Inbox'>
                   <Inbox />
+                </TitleWrapper>
+              } />
+              <Route path="/profile" element={
+                <TitleWrapper title='Profile'>
+                  <UserProfile />
                 </TitleWrapper>
               } />
               <Route path="/*" element={

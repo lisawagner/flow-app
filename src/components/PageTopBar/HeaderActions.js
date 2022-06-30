@@ -1,8 +1,11 @@
-import React from 'react'
+// components
+import ActionsBtn from "./ActionsBtn"
 
 const HeaderActions = () => {
   return (
-    <div>HeaderActions</div>
+    <div>
+      <ActionsBtn />
+    </div>
   )
 }
 
