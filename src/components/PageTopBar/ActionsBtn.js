@@ -38,6 +38,7 @@ const ActionsBtn = () => {
       >
         LW
       </button>
+
       {isOpen && (
         // TODO: Extract to separate component
         <div className={styles.dropDownContainer}>
@@ -45,7 +46,10 @@ const ActionsBtn = () => {
             <div className={styles.actionsDropdown}>
 
               <NavLink to="/profile" >
-                <button className={styles.actionsItemBtn} onClick={handleToggle}>
+                <button
+                  className={styles.actionsItemBtn}
+                  onClick={handleToggle}
+                >
                   <RiUserLine className={styles.actionsIcon}/>
                   <span>My Profile</span>
                 </button>
@@ -64,6 +68,7 @@ const ActionsBtn = () => {
           </div>
         </div>
       )}
+
 
     </div>
   )

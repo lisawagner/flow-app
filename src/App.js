@@ -1,8 +1,4 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
-import { useTitle } from './context/TitleContext';
-
-// styles
-import './App.css';
 
 // components
 import Layout from './components/Layout/Layout'
@@ -21,7 +17,6 @@ import SingleStream from './pages/SingleStream/SingleStream'
 import UserProfile from './pages/UserProfile/UserProfile'
 
 function App() {
-  const { title } = useTitle()
 
   return (
     <div className="App">

@@ -6,7 +6,7 @@ import HeaderActions from './HeaderActions'
 // styles
 import styles from './PageTopBar.module.css'
 
-// TODO: Consider using this as a global header for more pages - title via props
+// TODO(DONE): Consider using this as a global header for more pages - title via props
 
 const PageTopBar = ({ title }) => {
   

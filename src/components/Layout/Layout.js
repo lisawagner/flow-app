@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { useTitle } from '../../context/TitleContext';
 
@@ -10,7 +9,6 @@ import NavbarRoot from '../NavbarRoot/NavbarRoot'
 import PageTopBar from '../../components/PageTopBar/PageTopBar'
 
 export default function Layout() {
-  // const [pageTitle, setPageTitle] = useState({title})
   const { title } = useTitle()
 
   return (
@@ -20,18 +18,8 @@ export default function Layout() {
         <PageTopBar title={title} />
         <div className={styles.pageWrap}>
           <Outlet/> 
-        </div>
-        
+        </div>    
       </main>
     </>
   )
 }
-
-// export default function Layout({ children }) {
-//   return (
-//     <>
-//       <NavbarRoot />
-//       <main className={styles.flowMain}>where are my children{ children }</main>
-//     </>
-//   )
-// }
