@@ -57,7 +57,7 @@ const ActionsBtn = () => {
 
               <span className={styles.actionSpacer}></span>
 
-              <NavLink to="/login">
+              <NavLink to="/flow">
                 <button className={styles.actionsItemBtn}>
                   <RiLogoutBoxLine className={styles.actionsIcon}/>
                   <span>Log Out</span> 

@@ -15,6 +15,7 @@ import Teams from './pages/Teams/Teams'
 import AddStream from './pages/AddStream/AddStream'
 import SingleStream from './pages/SingleStream/SingleStream'
 import UserProfile from './pages/UserProfile/UserProfile'
+import GetStarted from './pages/GetStarted/GetStarted';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <Routes>
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<Signup />} />
+            <Route path="/flow" element={<GetStarted />} />
 
             <Route element={<Layout />}>
               <Route path="/tasks" element={
