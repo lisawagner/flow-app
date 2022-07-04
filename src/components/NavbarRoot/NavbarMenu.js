@@ -25,14 +25,14 @@ const NavbarMenu = () => {
           <span>Tasks</span>
         </NavLink>
 
-        <NavLink to="/teams" className={styles.nMenuSelector}>
-          <RiGroupLine className={styles.nMenuIcon}/>
-          <span>Teams</span> 
-        </NavLink>
-
         <NavLink to="/streams" className={styles.nMenuSelector}>
           <RiWindyLine className={styles.nMenuIcon}/>
           <span>Streams</span>
+        </NavLink>
+
+        <NavLink to="/teams" className={styles.nMenuSelector}>
+          <RiGroupLine className={styles.nMenuIcon}/>
+          <span>Teams</span> 
         </NavLink>
         
         <NavLink to="/inbox" className={styles.nMenuSelector}>
