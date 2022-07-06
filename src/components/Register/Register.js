@@ -1,8 +1,11 @@
 import React from 'react'
 
-const Register = () => {
+const Register = ({ isUser, setIsUser }) => {
   return (
-    <div>Register</div>
+    <>
+    <h1>Register Component</h1>
+    <a onClick={() => setIsUser(!isUser)}>-Login-</a>
+  </>
   )
 }
 

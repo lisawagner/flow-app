@@ -5,62 +5,70 @@
 .getStartedWrap {
   display: grid;
   min-height: 100vh;
-  grid-gap: 1.5vw;
-  /* padding: 1.5vw; */
-  
+  /* grid-gap: 1.5vw; */
 }
-.authWrap {
-  /* background: lightgrey; */
-}
+
+/* Flow App Details Section */
 .detailsWrap {
   display: none;
   /* background: pink; */
   background: var(--bg-color-tertiary);
   box-shadow: 0 3px 14px 3px rgba(0, 0, 0, 0.12),
               0 4px 15px rgba(0, 0, 0, 0.2);
-  
 }
 .startTitle {
-  font-size: 3rem;
+  font-size: 4.1vw;
   font-weight: 500;
 }
 .startListItem {
   display: flex;
-  column-gap: 20px;
+  column-gap: 1vw;
 
-  font-size: 2rem;
+  font-size: 2.3vw;
   font-weight: 300;
 
-  padding-left: 10px;
+  padding-left: 0.5vw;
   margin: 0.75rem auto;
 }
 
+/* Login/Register Gateway Section*/
+.gatewayWrap {
+  margin: 2rem 1rem 1rem;
+  /* background: pink; */
+}
+.gatewayHeader {
+  /* background: pink; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.gatewayTitle {
+  font-size: 10vw;
+}
+
+/* Media Queries */
 @media screen and (min-width: 821px) {
   .getStartedWrap {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 2fr;
   }
   .detailsWrap {
     display: flex;
     flex-direction: column;
     align-items:flex-start;
     justify-content: center;
-    /* padding-left: 2rem; */
-    padding-left: 1rem;
-
+    padding-left: 2vw;
+  }
+  .gatewayTitle {
+    font-size: 5vw;
   }
 }
 
 @media screen and (min-width: 995px) {
-  /* .getStartedWrap {
-    grid-template-columns: 1fr 2fr;
-  } */
-  .detailsWrap  {
-    padding-left: 3rem;
+  .gatewayTitle {
+    font-size: 4rem;
   }
 }
 
-/* @media screen and (min-width: 1395px) {
-  .getStartedWrap {
-    grid-template-columns: 3fr 2fr;
-  }
-} */
+@media screen and (min-width: 1395px) {
+
+}

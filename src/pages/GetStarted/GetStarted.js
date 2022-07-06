@@ -1,18 +1,18 @@
-import React from 'react'
+import { useState } from 'react'
 import styles from './GetStarted.module.css'
-import Register from '../../components/Register/Register'
-import Login from '../../components/Login/Login'
-import { ReactComponent as FlowLogo } from '../../images/original-logo3.svg'
+import Register from '../../components/Register/Register';
+import Login from '../../components/Login/Login';
+
 // icons
 import {
-  RiHomeLine,
   RiCheckboxCircleLine,
   RiGroupLine,
-  RiWindyLine,
-  RiNotification4Line
+  RiWindyLine
 } from "react-icons/ri";
 
 const GetStarted = () => {
+  const [isUser, setIsUser] = useState(true)
+
   return (
     <div className={styles.getStartedContainer}>
     <div className={styles.getStartedWrap}>
@@ -36,9 +36,15 @@ const GetStarted = () => {
 
       </div>
       
-      <div className={styles.authWrap}>
-        <Register />
-        {/* <Login /> */}
+      <div className={styles.gatewayWrap}>
+        <div className={styles.gatewayHeader}>
+          <h1 className={styles.gatewayTitle}>&#123;Flow&#125;</h1>
+        </div>
+        
+        {isUser
+          ? <Login isUser={isUser} setIsUser={setIsUser}/>
+          : <Register isUser={isUser} setIsUser={setIsUser}/>
+        }
       </div>
 
     </div>
