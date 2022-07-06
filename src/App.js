@@ -3,11 +3,11 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // components
 import Layout from './components/Layout/Layout'
 import TitleWrapper from './helpers/TitleWrapper';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
 
 // pages
 import Home from './pages/Home/Home'
-import Signup from './pages/Signup/Signup'
-import Login from './pages/Login/Login'
 import Inbox from './pages/Inbox/Inbox'
 import Streams from './pages/Streams/Streams'
 import Tasks from './pages/Tasks/Tasks'
@@ -17,15 +17,17 @@ import SingleStream from './pages/SingleStream/SingleStream'
 import UserProfile from './pages/UserProfile/UserProfile'
 import GetStarted from './pages/GetStarted/GetStarted';
 
+
+
 function App() {
 
   return (
     <div className="App">
       <BrowserRouter>
           <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/flow" element={<GetStarted />} />
+            
+            <Route path="/*" element={<GetStarted />}/>
+            <Route path="/flow" element={<GetStarted />}/>
 
             <Route element={<Layout />}>
               <Route path="/tasks" element={
@@ -63,7 +65,7 @@ function App() {
                   <UserProfile />
                 </TitleWrapper>
               } />
-              <Route path="/*" element={
+              <Route path="/home" element={
                 <TitleWrapper title='Home'>
                   <Home />
                 </TitleWrapper>

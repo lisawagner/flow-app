@@ -15,7 +15,7 @@ const NavbarMenu = () => {
     <div className={styles.nMenuWrap}>
       <nav className={styles.nMenu}>
 
-        <NavLink to="/" className={styles.nMenuSelector}>
+        <NavLink to="/home" className={styles.nMenuSelector}>
           <RiHomeLine className={styles.nMenuIcon}/>
           <span>Home</span> 
         </NavLink>
