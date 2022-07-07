@@ -1,0 +1,97 @@
+.signupWrap {
+  display: flex;
+}
+
+.signupContent {
+  padding: 1vw;
+  margin: auto;
+  width: 100%;
+  max-width: 420px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.formLabel span {
+  font-size: 1.35em;
+  color: var(--font-color-secondary);
+
+  margin-top: -3em;
+  transition: all 0.2s ease-in;
+
+  display: block;
+  position: absolute;
+  z-index: 1;
+}
+
+.formLabel input {
+  width: 100%;
+  padding: 10px 0;
+  margin-bottom: 30px;
+
+  font-size: 1.5em;
+  color:  var(--font-color-secondary);
+
+  border: none;
+  box-shadow: inset 0px -3px 0px 0px rgba(187,187,187,0.2);
+  transition: box-shadow 0.3s ease-in;
+
+  outline: none;
+  background: transparent; 
+
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+}
+
+.formLabel input:focus, .formLabel input:valid {
+  outline: none;
+  box-shadow: inset 0px -3px 0px 0px rgba(0,157,220,0.5);
+}
+
+.formLabel input:focus + span, .formLabel input:valid + span {
+  color: var(--accent-color);
+  transform: translate(-12%, -130%) scale(0.75);
+}
+
+.signupContent button {
+  width: 100%;
+  margin: 2rem auto 1rem;
+  padding: 15px 0;
+
+  color: white;
+  font-size: 1.5em;
+  letter-spacing: 4px;
+  background: var(--accent-color);
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+.signupContent button:hover {
+  background: rgba(0,157,220,0.7)
+}
+
+
+/* Registration Form Footer */
+
+.signupFooter {
+  text-align: right;
+  margin: auto 1rem;
+  font-size: 1.3rem;
+}
+
+.signupFooter p span {
+  color: var(--accent-color);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 400ms ease-in-out;
+}
+
+.signupFooter p span:hover {
+  color: var(--font-color-primary);
+}

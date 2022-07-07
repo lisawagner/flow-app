@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // components
 import Layout from './components/Layout/Layout'
 import TitleWrapper from './helpers/TitleWrapper';
-import Register from './components/Register/Register';
+import Signup from './components/Signup/Signup';
 import Login from './components/Login/Login';
 
 // pages

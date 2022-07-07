@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import styles from './GetStarted.module.css'
-import Register from '../../components/Register/Register';
+import Signup from '../../components/Signup/Signup';
 import Login from '../../components/Login/Login';
 
 // icons
@@ -9,6 +9,7 @@ import {
   RiGroupLine,
   RiWindyLine
 } from "react-icons/ri";
+
 
 const GetStarted = () => {
   const [isUser, setIsUser] = useState(true)
@@ -43,7 +44,7 @@ const GetStarted = () => {
         
         {isUser
           ? <Login isUser={isUser} setIsUser={setIsUser}/>
-          : <Register isUser={isUser} setIsUser={setIsUser}/>
+          : <Signup isUser={isUser} setIsUser={setIsUser}/>
         }
       </div>
 
