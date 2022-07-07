@@ -1,53 +1,99 @@
+/* TODO: Smooth out transitions */
+
 .loginWrap {
-  /* margin: auto 10px; */
-  /* background: lightgrey; */
+  display: flex;
 }
 .loginContent {
-  margin: 1rem 5rem;
-  padding: 20px;
-
-
-}
-.loginContent input, .loginContent select {
-  /* display: block; */
+  padding: 1vw;
+  margin: auto;
   width: 100%;
-  padding: 10px;
-  margin-top: 8px;
-
-  box-sizing: border-box;
-  border: 0.5px solid grey;
-  border-radius: 4px;
-  color: #555;
-  font-size: 1em;
+  max-width: 420px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
+.formLabel span {
+  font-size: 1.35em;
+  color: var(--font-color-secondary);
 
-.loginForm form {
-  margin: 50px auto;
-  padding: 20px;
+  margin-top: -3em;
+  transition: all 0.2s ease-in;
 
-  background: white;
-  border-radius: 4px;
-  box-shadow: 5px 5px 15px -2px rgba(0,0,0,0.48);
-}
-
-.loginForm input, .loginForm select {
   display: block;
+  position: absolute;
+  z-index: 1;
+}
+
+.formLabel input {
   width: 100%;
-  padding: 10px;
-  margin-top: 8px;
+  padding: 10px 0;
+  margin-bottom: 30px;
 
-  box-sizing: border-box;
-  border: 0.5px solid grey;
-  border-radius: 4px;
-  color: #555;
-  font-size: 1em;
+  font-size: 1.5em;
+  color:  var(--font-color-secondary);
+
+  border: none;
+  box-shadow: inset 0px -3px 0px 0px rgba(187,187,187,0.2);
+  transition: box-shadow 0.3s ease-in;
+
+  outline: none;
+  background: transparent; 
+
+  display: inline-block;
+  position: relative;
+  z-index: 2;
 }
 
-.loginForm label {
-  display: block;
-  margin: 0 auto 20px;
+.formLabel input:focus, .formLabel input:valid {
+  outline: none;
+  box-shadow: inset 0px -3px 0px 0px rgba(0,157,220,0.5);
 }
+
+.formLabel input:focus + span, .formLabel input:valid + span {
+  color: var(--accent-color);
+  transform: translate(-12%, -130%) scale(0.75);
+}
+
+.loginContent button {
+  width: 100%;
+  margin: 2rem auto 1rem;
+  padding: 15px 0;
+
+  color: white;
+  font-size: 1.5em;
+  letter-spacing: 4px;
+  background: var(--accent-color);
+
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+.loginContent button:hover {
+  background: rgba(0,157,220,0.7)
+}
+
+/* .loginContent input:focus {
+    box-shadow: inset 0px -3px 0px 0px rgba(34,193,195,0.7);
+   outline: none;
+}
+.loginContent input::-webkit-input-placeholder {
+  opacity: 1;
+  transition: opacity 0.25s ease-out;
+}
+.loginContent input:hover::-webkit-input-placeholder,
+.loginContent input:focus::-webkit-input-placeholder{
+  opacity: 0;
+} */
+
+/* .loginContent input:focus {
+  color: #9d9d9d;
+  transform: translate(-12%, -50%) scale(0.75);
+} */
+
+
 
 .loginForm button {
   margin: 10px auto;
@@ -60,6 +106,28 @@
   font-style: italic;
 }
 
+/* Login Form Footer */
+
+.loginFooter {
+  text-align: right;
+  margin: auto 1rem;
+  font-size: 1.3rem;
+}
+
+.loginFooter p span {
+  color: var(--accent-color);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  margin-left: 5px;
+  cursor: pointer;
+  transition: all 400ms ease-in-out;
+}
+
+.loginFooter p span:hover {
+  color: var(--font-color-primary);
+}
+
+/* Media Queries */
 @media (min-width: 480px) {
   .loginForm form {
     width: 80%;
