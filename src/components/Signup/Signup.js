@@ -60,9 +60,9 @@ const Signup = ({ isUser, setIsUser }) => {
             />
             <span>Display Name</span>
           </label>
-          <button className="btn">Signup</button>
-          {/* {!isPending && <button className="btn">Signup</button>}
-          {isPending && <button className="btn" disabled>loading</button>}
+          <button>Signup</button>
+          {/* {!isPending && <button>Signup</button>}
+          {isPending && <button disabled>loading</button>}
           {error && <p className={styles.errorMsg}>{error}</p>} */}
 
         </form>

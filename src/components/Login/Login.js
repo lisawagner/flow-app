@@ -54,7 +54,7 @@ const Login = ({ isUser, setIsUser }) => {
             />
             <span>Password</span>
           </label>
-          <button className="btn">Login</button>
+          <button>Login</button>
           {/* { error && <p className={styles.errorMsg}>{error}</p> } */}
 
         </form>
