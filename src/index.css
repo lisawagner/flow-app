@@ -34,7 +34,7 @@ a {
   text-decoration: none;
   color: var(--font-color-primary);
 }
-a:hover {
+a:hover, a.active {
   color: var(--accent-color);
 }
 
