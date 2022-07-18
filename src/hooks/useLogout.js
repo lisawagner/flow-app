@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
-import { auth } from '../firebase/config'
+import { db, auth } from '../firebase/config'
+import { doc, setDoc } from 'firebase/firestore'
 import { signOut } from 'firebase/auth'
 import { useAuthContext } from './useAuthContext'
 
@@ -14,8 +15,16 @@ export const useLogout = () => {
     setIsPending(true)
 
     try {
+      // update online status before logging out
+      const { uid } = auth.currentUser
+
+      const docRef = doc(db, "users", uid)
+      await setDoc(docRef, { online: false }, { merge: true })
+      console.log('User status updated');
+
       // sign the user out
       await signOut(auth)
+
       
       // dispatch logout action
       dispatch({ type: 'LOGOUT' })

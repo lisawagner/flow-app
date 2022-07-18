@@ -1,5 +1,5 @@
 import { useState } from 'react'
-// import { useLogin } from '../../hooks/useLogin'
+import { useLogin } from '../../hooks/useLogin'
 
 // styles
 import styles from './Login.module.css'
@@ -11,12 +11,12 @@ import styles from './Login.module.css'
 const Login = ({ isUser, setIsUser }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // const { login, error } = useLogin()
+  const { login, error } = useLogin()
 
   const handleSubmit = (e) => {
     e.preventDefault()
     console.log(email, password)
-    // login(email, password)
+    login(email, password)
   }
   return (
     <div className={styles.loginWrap}>
@@ -55,7 +55,7 @@ const Login = ({ isUser, setIsUser }) => {
             <span>Password</span>
           </label>
           <button>Login</button>
-          {/* { error && <p className={styles.errorMsg}>{error}</p> } */}
+          { error && <p className={styles.errorMsg}>{error}</p> }
 
         </form>
 

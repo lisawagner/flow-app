@@ -1,5 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
+import { useLogout } from '../../hooks/useLogout';
+// styles
 import styles from './ActionsBtn.module.css'
 // icons
 import {
@@ -8,9 +10,10 @@ import {
 } from "react-icons/ri";
 
 const ActionsBtn = () => {
+  const { logout } = useLogout()
   const [isOpen, setIsOpen] = useState(false)
   const actionsBtnRef = useRef()
-
+  
   const handleToggle = () => {
     setIsOpen(!isOpen)
   }
@@ -58,7 +61,7 @@ const ActionsBtn = () => {
               <span className={styles.actionSpacer}></span>
 
               <NavLink to="/flow">
-                <button className={styles.actionsItemBtn}>
+                <button className={styles.actionsItemBtn} onClick={logout}>
                   <RiLogoutBoxLine className={styles.actionsIcon}/>
                   <span>Log Out</span> 
                 </button>
