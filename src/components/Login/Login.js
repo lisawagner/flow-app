@@ -23,7 +23,7 @@ const Login = ({ isUser, setIsUser }) => {
       <div className={styles.loginContent}>
         <form onSubmit={handleSubmit}>
 
-          <label for="email" className={styles.formLabel}>
+          <label htmlFor="email" className={styles.formLabel}>
             <input 
               id="email"
               // type="email"
@@ -40,7 +40,7 @@ const Login = ({ isUser, setIsUser }) => {
             <span>Email</span>
           </label>
 
-          <label for="password" className={styles.formLabel}>
+          <label htmlFor="password" className={styles.formLabel}>
             
             <input
               id="password"
