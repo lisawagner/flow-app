@@ -1,16 +1,16 @@
 import { useState } from 'react'
-import { auth } from '../firebase/config'
+import { auth, storage, db } from '../firebase/config'
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { ref, getDownloadURL, uploadBytes } from 'firebase/storage'
+import { doc, setDoc } from 'firebase/firestore'
 import { useAuthContext } from './useAuthContext'
-import { useFirestore } from './useFirestore'
 
 export const useSignup = () => {
   const [error, setError] = useState(null)
   const [isPending, setIsPending] = useState(false)
   const { dispatch } = useAuthContext()
-  const { addDocument } = useFirestore('budgets')
 
-  const signup = async ( email, password, displayName) => {
+  const signup = async ( email, password, displayName, avatar) => {
     setError(null)
     setIsPending(true)
   
@@ -28,17 +28,30 @@ export const useSignup = () => {
         throw new Error('Could not complete signup. Please check your credentials and try again')
       }
 
-      // add display name to user after successful registration
-      // await res.user.updateProfile({ displayName })
+      // add user avatar folder to storage with uid key and filename
+      const uploadRef = ref(storage, `avatars/${res.user.uid}/${avatar.name}`)
+
+      // upload the image
+      const uploadImg = await uploadBytes(uploadRef, avatar)
+      const imgURL = await getDownloadURL(uploadRef, uploadImg)
+
+      // add displayName and avatar to user after successful registration
       await updateProfile(res.user, {
-        displayName
+        displayName,
+        // photoURL: avatarURL
+        photoURL: imgURL
       })
       console.log('User profile updated for: ' + displayName);
-      // create initial budget action
-      addDocument({
-        uid: res.user.uid,
-        totalAmount: '0.00'
+
+      // create firestore users collection if it doesn't already exist
+      // add user document to users collection
+      await setDoc(doc(db, "users", res.user.uid), {
+        online: true,
+        displayName,
+        // photoURL: avatarURL
+        photoURL: imgURL
       })
+      console.log('User document added to users collection');
 
       // dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user })

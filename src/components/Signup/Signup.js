@@ -1,21 +1,48 @@
 import { useState } from 'react'
-// import { useSignup } from '../../hooks/useSignup'
+import { useSignup } from '../../hooks/useSignup'
 
 // styles
 import styles from './Signup.module.css'
 
 // TODO: Refactor login/signup - too much code overlap
+// TODO: Consider moving setAvatar to Profile; have default avatar to start
 
 const Signup = ({ isUser, setIsUser }) => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [displayName, setDisplayName] = useState('')
-  // const { signup, isPending, error} = useSignup()
+  const { signup, isPending, error} = useSignup()
+
+  const [avatar, setAvatar] = useState(null)
+  const [avatarError, setAvatarError] = useState(null)
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log(email, password, displayName)
-    // signup(email, password, displayName)
+    console.log(email, password, displayName, avatar)
+    signup(email, password, displayName, avatar)
+  }
+
+  const handleAvatar = (e) => {
+    setAvatar(null)
+    let selected = e.target.files[0]
+    console.log(selected);
+
+    if (!selected) {
+      setAvatarError('* Please select a file')
+      return
+    }
+    if (!selected.type.includes('image')) {
+      setAvatarError('* Selected file must be an image file')
+      return
+    }
+    if (selected.size > 100000) {
+      setAvatarError('* Image size must be less then 100Kb')
+      return
+    }
+
+    setAvatarError(null)
+    setAvatar(selected)
+    console.log('Avatar updated!');
   }
 
   return (
@@ -23,7 +50,7 @@ const Signup = ({ isUser, setIsUser }) => {
       <div className={styles.signupContent}>
         <form onSubmit={handleSubmit}>
 
-          <label for="email" className={styles.formLabel}>
+          <label htmlFor="email" className={styles.formLabel}>
             <input
               id="email"
               // type="email"
@@ -36,7 +63,7 @@ const Signup = ({ isUser, setIsUser }) => {
             />
             <span>Email</span>
           </label>
-          <label for="password" className={styles.formLabel}>
+          <label htmlFor="password" className={styles.formLabel}>
             <input
               id="password"
               type="password"
@@ -48,7 +75,7 @@ const Signup = ({ isUser, setIsUser }) => {
             />
             <span>Password</span>
           </label>
-          <label for="displayName" className={styles.formLabel}>
+          <label htmlFor="displayName" className={styles.formLabel}>
             <input
               id="text"
               type="text"
@@ -60,10 +87,22 @@ const Signup = ({ isUser, setIsUser }) => {
             />
             <span>Display Name</span>
           </label>
-          <button>Signup</button>
-          {/* {!isPending && <button>Signup</button>}
+          <label htmlFor="avatar" className={styles.formLabel}>
+            <input
+              id="file"
+              type="file"
+              name="file" 
+              onChange={handleAvatar} 
+              autoComplete='off'
+              required
+            />
+            <span>Avatar</span>
+            {avatarError && <div className={styles.errorMsg}>{avatarError}</div>}
+          </label>
+          {/* <button>Signup</button> */}
+          {!isPending && <button>Signup</button>}
           {isPending && <button disabled>loading</button>}
-          {error && <p className={styles.errorMsg}>{error}</p>} */}
+          {error && <p className={styles.errorMsg}>{error}</p>}
 
         </form>
 
