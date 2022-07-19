@@ -6,7 +6,7 @@ import styles from './Login.module.css'
 
 // TODO:  - issue with <input type="email"/> collapsing when input:invalid
 //        - quickfix done by setting <input type="text"/> for email input
-//        - after connecting w/firebase, look into alternatives
+//        - look into alternative solutions
 
 const Login = ({ isUser, setIsUser }) => {
   const [email, setEmail] = useState('')
@@ -18,6 +18,7 @@ const Login = ({ isUser, setIsUser }) => {
     console.log(email, password)
     login(email, password)
   }
+
   return (
     <div className={styles.loginWrap}>
       <div className={styles.loginContent}>
@@ -66,8 +67,6 @@ const Login = ({ isUser, setIsUser }) => {
         </div>
 
       </div>
-
-      
       
     </div>
   )
