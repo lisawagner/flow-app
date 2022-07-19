@@ -1,13 +1,16 @@
 import { useState, useRef, useEffect } from 'react'
-import { NavLink } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useLogout } from '../../hooks/useLogout';
+
 // styles
 import styles from './ActionsBtn.module.css'
+
 // icons
 import {
   RiUserLine,
   RiLogoutBoxLine
 } from "react-icons/ri";
+
 
 const ActionsBtn = () => {
   const { logout } = useLogout()
@@ -48,7 +51,7 @@ const ActionsBtn = () => {
           <div className={styles.dropDownWrap}>
             <div className={styles.actionsDropdown}>
 
-              <NavLink to="/profile" >
+              <Link to="/profile" >
                 <button
                   className={styles.actionsItemBtn}
                   onClick={handleToggle}
@@ -56,16 +59,16 @@ const ActionsBtn = () => {
                   <RiUserLine className={styles.actionsIcon}/>
                   <span>My Profile</span>
                 </button>
-              </NavLink>
+              </Link>
 
               <span className={styles.actionSpacer}></span>
 
-              <NavLink to="/flow">
+              <Link to="/flow">
                 <button className={styles.actionsItemBtn} onClick={logout}>
                   <RiLogoutBoxLine className={styles.actionsIcon}/>
                   <span>Log Out</span> 
                 </button>
-              </NavLink>
+              </Link>
 
             </div>
           </div>
