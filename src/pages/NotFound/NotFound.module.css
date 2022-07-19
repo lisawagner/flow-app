@@ -1,0 +1,45 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  justify-content: center;
+  align-items: center;
+  row-gap: 20px;
+  height: 100vh;
+  background: black;
+}
+
+.image img {
+  width: 270px;
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 10px;
+  color: white;
+}
+.details p {
+  /* padding: 1rem; */
+}
+.details button {
+  color: white;
+  background: blue;
+}
+@media screen and (min-width: 500px) {
+  .image img {
+    width: 500px;
+    height: auto;
+  }
+
+}
+
+@media screen and (min-width: 821px) {
+  .container {
+    flex-direction: row;
+    column-gap: 20px;
+}
+
+
+}
