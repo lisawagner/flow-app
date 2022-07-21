@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { useLogout } from '../../hooks/useLogout';
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 // styles
 import styles from './ActionsBtn.module.css'
@@ -10,12 +11,14 @@ import {
   RiUserLine,
   RiLogoutBoxLine
 } from "react-icons/ri";
+import Avatar from '../Avatar/Avatar';
 
 
 const ActionsBtn = () => {
   const { logout } = useLogout()
   const [isOpen, setIsOpen] = useState(false)
   const actionsBtnRef = useRef()
+  const { user } = useAuthContext()
   
   const handleToggle = () => {
     setIsOpen(!isOpen)
@@ -36,14 +39,15 @@ const ActionsBtn = () => {
 
   return (
     <div className={styles.actionsBtnContainer} ref={actionsBtnRef}>
-
+      <div className={styles.actionBtnWrap}>
       <button
         type="button"
         className={styles.actionsBtn}
         onClick={handleToggle}
       >
-        LW
+        <Avatar src={user.photoURL}/>
       </button>
+      </div>
 
       {isOpen && (
         // TODO: Extract to separate component
