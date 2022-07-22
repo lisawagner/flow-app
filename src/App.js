@@ -54,8 +54,8 @@ function App() {
                   </TitleWrapper>
                 } />
                 <Route path="/streams" element={
-                  <TitleWrapper title='Streams'>
-                    <Streams title="Streams"/>
+                  <TitleWrapper title='Projects'>
+                    <Streams title="Projects"/>
                   </TitleWrapper>
                 } />
                 <Route path="/streams/:id" element={

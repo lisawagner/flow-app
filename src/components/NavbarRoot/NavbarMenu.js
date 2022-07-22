@@ -27,7 +27,7 @@ const NavbarMenu = () => {
 
         <NavLink to="/streams" className={styles.nMenuSelector}>
           <RiWindyLine className={styles.nMenuIcon}/>
-          <span>Streams</span>
+          <span>Projects</span>
         </NavLink>
 
         <NavLink to="/teams" className={styles.nMenuSelector}>
