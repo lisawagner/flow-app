@@ -3,6 +3,9 @@
   /* align-items: flex-start; */
   align-items: center;
   flex-wrap: nowrap;
+
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(9,38,56,.2);
 }
 .pActionsTitleBar {
   min-width: 0px;
@@ -35,7 +38,7 @@
 }
 
 /*  Media Queries */
-@media screen and (min-width: 767px) {
+@media (min-width: 767px) {
   .pActionsTitle {
     font-size: 1.75rem;
   }

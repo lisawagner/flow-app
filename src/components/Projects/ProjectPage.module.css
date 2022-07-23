@@ -1,7 +1,11 @@
 .pPageWrap {
+  /* width: 672px; */
+  /* ^-- may not be needed, or change width to suit*/
+
   display: flex;
   flex-flow: row wrap;
-  padding-top: 16px;
+  padding-top: 12px;
+
 }
 .pPageContainer {
   display: flex;
@@ -9,35 +13,54 @@
   width: 100%;
 
   flex-flow: row wrap;
+  column-gap: 4px;
 }
 .pTileWrap {
+  flex: 0 0 auto;
   display: block;
 }
-.pTileCard {
-  margin: 0 8px;
-  cursor: pointer;
+.pTileCardWrap { /* <-- needed?*/
+  height: 100%;
+  width: 100%;
 
-  border-radius: 30px;
+  display: block;
+}
+.pTileCardContainer {
+  /* this container is for drag and drop when implemented */
+  display: block;
+}
+.pCardLinkWrap {
+  margin: 0 8px;
+
+}
+.pCardLinkContainer {
+  border-radius: 16px;
   box-sizing: border-box;
-  height: 226px;
-  min-width: 152px;
-  padding: 16px 0;
-  width: 152px;
+  height: 146px;
+  min-width: 97px;
+  padding: 4px 0;
+  width: 97px;
   align-items: center;
   display: flex;
   flex-flow: column;
   /* position: relative; */
   transition-duration: .4s;
 
-  background: lightgrey;
+  /* background: lightgrey; */
+  /* background: white; */
 }
-.pTileCardIcon {
-  border-radius: 20px;
+.pCardLinkWrap {
+  height: 80px;
+  width: 80px;
+}
+.pCardIconWrap {
+  /* This wrap set up to have links inside - add later */
+  border-radius: 14px;
   height: 100%;
   width: 100%;
   box-shadow: inset 0 -2px rgb(0 0 0 / 5%);
   align-items: center;
-  background: pink;
+  background: var(--alert-color);
   display: flex;
   fill: #fff;
   flex-flow: column;
@@ -45,12 +68,16 @@
   justify-content: center;
   position: relative;
 }
+.pIcon {
+  color: var(--bg-color-secondary);
+  font-size: 3rem;
+}
 .pTileCardName {
   box-sizing: border-box;
   margin-top: 8px;
   padding: 0 8px;
   -webkit-box-orient: vertical;
-  color: var(--color-text);
+  color: var(--font-color-primary);
   display: -webkit-box;
   font-size: 14px;
   font-weight: 500;
@@ -61,4 +88,26 @@
   text-align: center;
   text-overflow: ellipsis;
   width: 100%;
+}
+.pCardSubTitle {
+  font-size: 1.25rem;
+  color: var(--font-color-secondary);
+}
+
+/*  Media Queries */
+@media (min-width: 767px) {
+  .pPageContainer {
+    justify-content: flex-start;
+    column-gap: 6px;
+  }
+  .pCardLinkContainer {
+    height: 226px;
+    min-width: 152px;
+    padding: 16px 0;
+    width: 152px;
+  }
+  .pCardLinkWrap {
+    height: 120px;
+    width: 120px;
+  }
 }
