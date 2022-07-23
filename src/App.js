@@ -15,6 +15,7 @@ import Teams from './pages/Teams/Teams'
 import AddStream from './pages/AddStream/AddStream'
 import SingleStream from './pages/SingleStream/SingleStream'
 import UserProfile from './pages/UserProfile/UserProfile'
+import NewProject from './pages/NewProject/NewProject'
 // pages - public
 import FlowLanding from './pages/FlowLanding/FlowLanding';
 import GetStarted from './pages/GetStarted/GetStarted';
@@ -61,6 +62,11 @@ function App() {
                 <Route path="/streams/:id" element={
                   <TitleWrapper title='Stream'>
                     <SingleStream />
+                  </TitleWrapper>
+                } />
+                <Route path="/create" element={
+                  <TitleWrapper title='New Project'>
+                    <NewProject title="New Project"/>
                   </TitleWrapper>
                 } />
                 <Route path="/new" element={

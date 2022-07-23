@@ -1,0 +1,42 @@
+.pActionsContainer {
+  display: flex;
+  /* align-items: flex-start; */
+  align-items: center;
+  flex-wrap: nowrap;
+}
+.pActionsTitleBar {
+  min-width: 0px;
+  max-width: 100%;
+  margin-bottom: 8px;
+  flex: 1 1 auto;
+}
+.pActionsTitle {
+  font-size: 1.2rem;
+}
+.pActions {
+  max-width: 100%;
+  margin-bottom: 8px;
+  margin-left: auto;
+  /* padding-left: 32px; */
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.pActionsBtn {
+  padding: 10px 14px;
+
+  background: var(--accent-color);
+  color: white;
+
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+
+/*  Media Queries */
+@media screen and (min-width: 767px) {
+  .pActionsTitle {
+    font-size: 1.75rem;
+  }
+}
