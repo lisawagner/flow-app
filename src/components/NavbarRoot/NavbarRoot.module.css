@@ -19,6 +19,8 @@
   overflow: hidden;
   transition: 375ms;
 
+  z-index: 99999;
+
 }
 
 .nHeader, .nPriorities, .nInfoHub, .nHeaderBottom, .nItem {
