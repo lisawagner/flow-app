@@ -1,4 +1,6 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { useCollection } from '../../hooks/useCollection'
+import Select from 'react-select'
 // styles
 import styles from './NewProject.module.css'
 
@@ -6,17 +8,48 @@ import styles from './NewProject.module.css'
 //        or use a plugin
 // TODO:  Consider making this a modal window instead
 
+const categories = [
+  { value: 'development', label: 'Development' },
+  { value: 'design', label: 'Design' },
+  { value: 'sales', label: 'Sales' },
+  { value: 'marketing', label: 'Marketing' },
+]
+
 const NewProject = () => {
+  const { documents } = useCollection('users')
+  const [users, setUsers] = useState([])
+
   const [name, setName] = useState('')
   const [details, setDetails] = useState('')
   const [dueDate, setDueDate] = useState('')
   const [category, setCategory] = useState('')
   const [assignedUsers, setAssignedUsers] = useState([])
+  const [formError, setFormError] = useState(null)
+
+  // create user values for react-select
+  useEffect(() => {
+    if(documents) {
+      setUsers(documents.map(user => {
+        return { value: {...user, id: user.id}, label: user.displayName }
+      }))
+    }
+  }, [documents])
+  // console.log(users)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setFormError(null)
 
-    console.log(name, details, dueDate)
+    if (!category) {
+      setFormError('* Please select a category *')
+      return
+    }
+    if (assignedUsers.length < 1) {
+      setFormError('* Set at least 1 user to project *')
+      return
+    }
+
+    console.log(name, details, dueDate, category.value, assignedUsers)
   }
 
   return (
@@ -59,12 +92,19 @@ const NewProject = () => {
 
           <label htmlFor="category" className={styles.formLabel}>
             <span>Category</span>
-            {/* select here later */}
+            <Select
+              onChange={(option) => setCategory(option)}
+              options={categories}
+            />
           </label>
 
-          <label htmlFor="assignedTo" className={styles.formLabel}>
-            <span>Assign To</span>
-            {/* select here later */}
+          <label htmlFor="assign members" className={styles.formLabel}>
+            <span>Assign Members</span>
+            <Select
+              onChange={(option) => setAssignedUsers(option)}
+              options={users}
+              isMulti
+            />
           </label>
 
           <div className={styles.newBtnsWrap}>
@@ -75,7 +115,7 @@ const NewProject = () => {
               <button className={styles.createBtn}>Create Project</button>
             </div>
           </div>
-
+          {formError && <p className={styles.error}>{formError}</p>}
         </form>
       </div>
     </div>
