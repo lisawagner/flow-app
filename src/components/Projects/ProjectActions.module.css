@@ -36,6 +36,7 @@
   cursor: pointer;
   transition: all 0.4s ease-out;
 }
+/* onhover? */
 
 /*  Media Queries */
 @media (min-width: 767px) {

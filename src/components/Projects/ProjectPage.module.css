@@ -1,12 +1,8 @@
 .pPageWrap {
-  /* width: 672px; */
-  /* ^-- may not be needed, or change width to suit*/
-
   display: flex;
-  flex-flow: row wrap;
   padding-top: 12px;
-
 }
+
 .pPageContainer {
   display: flex;
   height: 100%;
@@ -14,6 +10,7 @@
 
   flex-flow: row wrap;
   column-gap: 4px;
+  
 }
 .pTileWrap {
   flex: 0 0 auto;
