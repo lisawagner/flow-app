@@ -1,0 +1,99 @@
+.newProjectWrap {
+  margin-bottom: 6rem;
+}
+.createWrap {
+  display: flex;
+  margin: auto 1.5rem;
+
+  justify-content: center;
+  
+}
+
+.createContent {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px;
+
+  padding: 18px;
+  box-sizing: border-box;
+  border-radius: 4px;
+  background: white;
+  font-size: 1.1rem;
+}
+.formLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 1rem auto;
+}
+.formLabel span {
+  margin-top: 12px;
+  margin-bottom: 6px;
+}
+.formLabel input, .formLabel textarea {
+  height: 2.5rem;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  font-size: 1rem;
+
+  border: var(--border-color) solid 1px;
+  border-radius: 3px;
+}
+.formLabel input:focus, .formLabel textarea:focus {
+  outline: none;
+  border: rgba(0,157,220,0.2) solid 2px;
+}
+.formLabel textarea {
+  min-height: 6rem;
+  padding-top: 8px;
+
+  font-size: 1.1rem;
+  font-family: 'Yantramanav', sans-serif;
+  color: var(--font-color-primary);
+}
+
+/* Bottom Buttons */
+.newBtnsWrap {
+  padding-top: 1rem;
+  border-top: 1px solid rgba(9,38,56,.2);
+  
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 0.35rem;
+}
+.cancelBtn {
+  padding: 10px 14px;
+
+  background: var(--bg-color-secondary);
+  color: var(--font-color-primary);
+
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+.cancelBtn:hover {
+  background: var(--light-grey);
+}
+
+.createBtn {
+  padding: 10px 14px;
+
+  background: var(--accent-color);
+  color: white;
+
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+.createBtn:hover {
+  background: rgba(0,157,220,0.7)
+}
+
