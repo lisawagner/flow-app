@@ -27,7 +27,7 @@
   display: none;
 }
 
-@media screen and (min-width: 821px) {
+@media (min-width: 821px) {
   .nRootWrap {
     flex-direction: column;
     justify-content: space-between;
