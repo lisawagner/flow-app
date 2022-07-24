@@ -1,5 +1,5 @@
-import { Children, createContext, useContext, useState } from "react";
-import { Outlet } from 'react-router-dom';
+import { createContext, useContext, useState } from "react";
+// import { Outlet } from 'react-router-dom';
 
 export const TitleContext = createContext()
 export const useTitle = () => useContext(TitleContext)
