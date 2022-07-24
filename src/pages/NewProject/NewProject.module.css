@@ -96,4 +96,9 @@
 .createBtn:hover {
   background: rgba(0,157,220,0.7)
 }
+.error {
+  font-style: italic;
+  color: var(--alert-color);
+  margin: 1.5rem auto 1rem;
+}
 
