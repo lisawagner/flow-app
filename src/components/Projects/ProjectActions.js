@@ -10,7 +10,7 @@ const ProjectActions = ({ title }) => {
       <div className={styles.pActions}>
         <div>
           <Link to='/create'>
-            <button type="button" tabindex="0" className={styles.pActionsBtn}>
+            <button type="button" tabIndex="0" className={styles.pActionsBtn}>
               <span>New Project</span>
             </button>
           </Link>
