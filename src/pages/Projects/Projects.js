@@ -1,7 +1,7 @@
 import { useCollection } from '../../hooks/useCollection'
 // components
-import ProjectActions from '../../components/Projects/ProjectActions'
-import ProjectPage from '../../components/Projects/ProjectPage'
+import ProjectActions from '../../components/ProjectsViews/ProjectActions'
+import ProjectPage from '../../components/ProjectsViews/ProjectPage'
 // styles
 import styles from './Projects.module.css'
 
