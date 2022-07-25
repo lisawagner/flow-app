@@ -58,6 +58,7 @@
 
 /* Bottom Buttons */
 .newBtnsWrap {
+  margin-top: 3rem;
   padding-top: 1rem;
   border-top: 1px solid rgba(9,38,56,.2);
   
@@ -102,3 +103,7 @@
   margin: 1.5rem auto 1rem;
 }
 
+/*  Media Queries */
+@media (min-width: 767px) {
+
+}
