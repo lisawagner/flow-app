@@ -26,7 +26,7 @@ const ProjectPage = ({ projects }) => {
             <div key={project.id} className={styles.pTileWrap}>
               <div className={styles.pTileCardWrap}>
                 <div className={styles.pTileCardContainer}>
-                  <Link to={`/streams/${project.id}`}  className={styles.pCardLinkWrap}>
+                  <Link to={`/projects/${project.id}`}  className={styles.pCardLinkWrap}>
                     
                     <div className={styles.pCardLinkContainer}>
                       <div className={styles.pCardLinkWrap}>

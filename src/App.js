@@ -9,11 +9,10 @@ import UserRoute from './components/UserRoute/UserRoute';
 // pages - authorized
 import Home from './pages/Home/Home'
 import Inbox from './pages/Inbox/Inbox'
-import Streams from './pages/Streams/Streams'
+import Projects from './pages/Projects/Projects'
 import Tasks from './pages/Tasks/Tasks'
 import Teams from './pages/Teams/Teams'
-import AddStream from './pages/AddStream/AddStream'
-import SingleStream from './pages/SingleStream/SingleStream'
+import SingleProject from './pages/SingleProject/SingleProject'
 import UserProfile from './pages/UserProfile/UserProfile'
 import NewProject from './pages/NewProject/NewProject'
 // pages - public
@@ -54,24 +53,19 @@ function App() {
                     <Teams />
                   </TitleWrapper>
                 } />
-                <Route path="/streams" element={
+                <Route path="/projects" element={
                   <TitleWrapper title='Projects'>
-                    <Streams title="Projects"/>
+                    <Projects title="Projects"/>
                   </TitleWrapper>
                 } />
-                <Route path="/streams/:id" element={
-                  <TitleWrapper title='Stream'>
-                    <SingleStream />
+                <Route path="/projects/:id" element={
+                  <TitleWrapper title='Project'>
+                    <SingleProject />
                   </TitleWrapper>
                 } />
                 <Route path="/create" element={
                   <TitleWrapper title='New Project'>
                     <NewProject title="New Project"/>
-                  </TitleWrapper>
-                } />
-                <Route path="/new" element={
-                  <TitleWrapper title='New'>
-                    <AddStream />
                   </TitleWrapper>
                 } />
                 <Route path="/inbox" element={
