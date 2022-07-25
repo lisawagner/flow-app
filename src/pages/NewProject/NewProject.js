@@ -1,12 +1,16 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useCollection } from '../../hooks/useCollection'
+import { useAuthContext } from '../../hooks/useAuthContext'
+import { useFirestore } from '../../hooks/useFirestore'
+import { Timestamp } from 'firebase/firestore'
 import Select from 'react-select'
 // styles
 import styles from './NewProject.module.css'
 
 // TODO:  Consider coding a text editor for summary section
 //        or use a plugin
-// TODO:  Consider making this a modal window instead
+// TODO:  Consider making this a modal window for better UX
 
 const categories = [
   { value: 'development', label: 'Development' },
@@ -17,9 +21,14 @@ const categories = [
 ]
 
 const NewProject = () => {
+  const history = useNavigate()
+  const { addDocument, response } = useFirestore('projects')
+
+  const { user } = useAuthContext()
   const { documents } = useCollection('users')
   const [users, setUsers] = useState([])
 
+  // field values
   const [name, setName] = useState('')
   const [details, setDetails] = useState('')
   const [dueDate, setDueDate] = useState('')
@@ -50,7 +59,39 @@ const NewProject = () => {
       return
     }
 
-    console.log(name, details, dueDate, category.value, assignedUsers)
+    const assignedUsersList = assignedUsers.map(u => {
+      return { 
+        displayName: u.value.displayName, 
+        photoURL: u.value.photoURL,
+        id: u.value.id
+      }
+    })
+
+    const createdBy = { 
+      displayName: user.displayName, 
+      photoURL: user.photoURL,
+      id: user.uid
+    }
+
+    // create project object to save to db
+    const project = {
+      name,
+      details,
+      category: category.value,
+      dueDate: Timestamp.fromDate(new Date(dueDate)),
+      assignedUsersList, 
+      createdBy,
+      comments: []
+    }
+
+    // add project to firestore
+    await addDocument(project)
+    if (!response.error) {
+      history('/streams')
+    }
+
+    // console.log(name, details, dueDate, category.value, assignedUsers)
+    console.log(project);
   }
 
   return (
