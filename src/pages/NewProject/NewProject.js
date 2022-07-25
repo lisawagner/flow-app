@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, Link } from 'react-router-dom'
 import { useCollection } from '../../hooks/useCollection'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useFirestore } from '../../hooks/useFirestore'
@@ -87,7 +87,7 @@ const NewProject = () => {
     // add project to firestore
     await addDocument(project)
     if (!response.error) {
-      history('/streams')
+      history('/projects')
     }
 
     // console.log(name, details, dueDate, category.value, assignedUsers)
@@ -150,9 +150,9 @@ const NewProject = () => {
           </label>
 
           <div className={styles.newBtnsWrap}>
-            <div>
+            <Link to='/projects'>
               <button className={styles.cancelBtn}>Cancel</button> 
-            </div>
+            </Link>
             <div>
               <button className={styles.createBtn}>Create Project</button>
             </div>
