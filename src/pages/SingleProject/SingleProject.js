@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { Outlet, useParams } from 'react-router-dom'
 import { useDocument } from '../../hooks/useDocument'
 // import { useTitle } from '../../context/TitleContext'
 
@@ -35,7 +35,8 @@ const SingleProject = () => {
       <ProjectHeader title={userDoc.name} />
       <div className={styles.spWrap}>
         <TabNavBar />
-        <h1>{userDoc.name}</h1>
+        {/* <h1>{userDoc.name}</h1> */}
+        <Outlet />
       </div>
     </>
   )

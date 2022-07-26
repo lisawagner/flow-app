@@ -8,16 +8,24 @@ import styles from './TabNavBar.module.css'
 const TabNavBar = () => {
   return (
     <div className={styles.tabNavBarWrap}>
-      {/* <NavLink to={`/projects/${project.id}/overview`}> */}
-      <NavLink to={`/projects/project:id/overview`}>
-        <span>Overview</span>
-      </NavLink>
-      <NavLink to="/projects">
-        <span>List</span>
-      </NavLink>
-      <NavLink to="/projects">
-        <span>Board</span>
-      </NavLink>
+      <div className={styles.tabNavBarContainer}>
+        <div className={styles.tabNavItem}>
+          <NavLink to="overview">
+            <span>Overview</span>
+          </NavLink>
+        </div>
+        <div className={styles.tabNavItem}>
+          <NavLink to="list">
+            <span>List</span>
+          </NavLink>
+        </div>
+        <div className={styles.tabNavItem}>
+          <NavLink to="board">
+            <span>Board</span>
+          </NavLink>
+        </div>
+      </div>
+
     </div>
   )
 }

@@ -15,6 +15,9 @@ import Teams from './pages/Teams/Teams'
 import SingleProject from './pages/SingleProject/SingleProject'
 import UserProfile from './pages/UserProfile/UserProfile'
 import NewProject from './pages/NewProject/NewProject'
+import Overview from './components/SingleProjectViews/Overview'
+import ListView from './components/SingleProjectViews/ListView'
+import BoardView from './components/SingleProjectViews/BoardView';
 // pages - public
 import FlowLanding from './pages/FlowLanding/FlowLanding';
 import GetStarted from './pages/GetStarted/GetStarted';
@@ -59,10 +62,16 @@ function App() {
                   </TitleWrapper>
                 } />
                 <Route path="/projects/:id" element={
-                  <TitleWrapper title='Project'>
+                  <TitleWrapper title=''>
                     <SingleProject />
                   </TitleWrapper>
-                } />
+                } >
+                  <Route path="overview" element={<Overview />} />
+                  <Route path="list" element={<ListView />} />
+                  <Route path="board" element={<BoardView />} />
+
+                </Route>
+
                 <Route path="/create" element={
                   <TitleWrapper title='New Project'>
                     <NewProject />
