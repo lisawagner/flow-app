@@ -1,13 +1,12 @@
 // styles
 import styles from './ProjectHeader.module.css'
 
-const ProjectHeader = () => {
+const ProjectHeader = ({ title }) => {
   return (
-    <div>
-      <div>Overview</div>
-      <div>List</div>
-      <div>Board</div>
-
+    <div className={styles.pHeaderWrap}>
+      <div className={styles.pHeaderContainer}>
+        <h1>{title}</h1>
+      </div>
     </div>
   )
 }
