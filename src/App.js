@@ -65,7 +65,7 @@ function App() {
                 } />
                 <Route path="/create" element={
                   <TitleWrapper title='New Project'>
-                    <NewProject title="New Project"/>
+                    <NewProject />
                   </TitleWrapper>
                 } />
                 <Route path="/inbox" element={

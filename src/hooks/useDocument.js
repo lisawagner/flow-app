@@ -12,6 +12,7 @@ export const useDocument = (collection, id) => {
   // realtime document data
   useEffect(() => {
     // const docRef = db.collection(collection).doc(id)
+    // const docRef = doc(db, collection, id)
     const docRef = doc(db, collection, id)
     // const snapshot = getDoc(docRef)
 
