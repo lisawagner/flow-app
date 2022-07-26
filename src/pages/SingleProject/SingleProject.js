@@ -1,7 +1,11 @@
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useDocument } from '../../hooks/useDocument'
-import { useTitle } from '../../context/TitleContext'
+// import { useTitle } from '../../context/TitleContext'
+
+// components
+import ProjectHeader from '../../components/SingleProjectViews/ProjectHeader'
+import TabNavBar from '../../components/TabNavBar/TabNavBar'
 
 // styles
 import styles from './SingleProject.module.css'
@@ -9,8 +13,7 @@ import styles from './SingleProject.module.css'
 const SingleProject = () => {
   const { id } = useParams()
   const { error, userDoc } = useDocument('projects', id)
-  const [projectTitle, setProjectTitle] = useState('')
-  const { setTitle } = useTitle()
+  // const { setTitle } = useTitle()
 
   // useEffect(() => {
     
@@ -28,10 +31,13 @@ const SingleProject = () => {
   }
 
   return (
-    <div>
-      <h1>{userDoc.name}</h1>
-
-    </div>
+    <>
+      <ProjectHeader title={userDoc.name} />
+      <div className={styles.spWrap}>
+        <TabNavBar />
+        <h1>{userDoc.name}</h1>
+      </div>
+    </>
   )
 }
 
