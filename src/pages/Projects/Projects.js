@@ -1,4 +1,5 @@
 import { useCollection } from '../../hooks/useCollection'
+import { useAuthContext } from '../../hooks/useAuthContext'
 // components
 import ProjectActions from '../../components/ProjectsViews/ProjectActions'
 import ProjectPage from '../../components/ProjectsViews/ProjectPage'
@@ -7,6 +8,7 @@ import styles from './Projects.module.css'
 
 const Projects = ({ title }) => {
   const { documents, error } = useCollection('projects')
+  const { user } = useAuthContext()
 
   return (
     <div className={styles.projectsContainer}>

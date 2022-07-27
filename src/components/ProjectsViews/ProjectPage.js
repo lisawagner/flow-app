@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom'
 import NoProjects from './NoProjects';
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 // styles
 import styles from './ProjectPage.module.css'
@@ -13,9 +14,31 @@ import { RiFolder3Fill, RiLock2Line } from "react-icons/ri";
 //        their default view. Ie. key='overview', key='listview', key='boardview'
 
 const ProjectPage = ({ projects }) => {
+  const { user } = useAuthContext()
+
   const allProjects = projects
 
-  if (projects.length === 0) {
+  const assignedProjects = projects ? projects.filter(project => {
+    let assignedToMe = false
+    project.assignedUsersList.forEach(u => {
+      if(u.id === user.uid) {
+        assignedToMe = true
+      }
+    })
+    return assignedToMe
+  }) : null
+
+
+  // user.uid === project.createdBy.id
+  const myProjects = projects ? projects.filter(project => {
+    let madeByMe = false
+    if(user.uid === project.createdBy.id) {
+        madeByMe = true
+    }
+    return madeByMe
+  }) : null
+
+  if (allProjects.length === 0) {
     return <NoProjects />
   } else {
     return (
