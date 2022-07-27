@@ -1,12 +1,34 @@
-import React from 'react'
+import { useOutletContext } from 'react-router-dom';
+import Avatar from '../Avatar/Avatar'
+// styles
+import styles from './Overview.module.css'
+
 
 const Overview = () => {
+  const { userDoc } = useOutletContext()
+  console.log("OutletContext: ", userDoc);
   return (
-    <div>
-      <h1>Overview</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores eaque cupiditate nesciunt debitis minima fuga nulla dolor doloremque nemo tenetur asperiores quis cum, distinctio aut reiciendis? Nesciunt impedit et a quam qui, possimus quas quasi libero earum eum, fuga veritatis. Dicta id reprehenderit tempora aliquid hic fugit placeat quia sunt. Nobis itaque ducimus, velit ab corporis veniam dolorem modi, minima ad error delectus eos pariatur corrupti cum a placeat illo! Amet molestias voluptatum quisquam repellat aliquam. Iste blanditiis quae doloremque odio iure nesciunt perspiciatis quaerat enim autem at, ratione ex aliquam veniam voluptates modi omnis id aliquid architecto laboriosam deserunt! Adipisci quaerat molestias voluptatum aspernatur reiciendis, vel accusantium, provident hic nulla blanditiis sequi earum repellat repellendus? Accusantium officiis culpa ducimus obcaecati commodi illum eligendi delectus deserunt autem, maiores, necessitatibus iure, perspiciatis sequi! Quam reiciendis id ex similique qui ipsum magnam quaerat aspernatur quos, maxime pariatur?</p>
-      
-
+    <div className={styles.overWrap}>
+      <div className={styles.overContainer}>
+        <div className={styles.summaryWrap}>
+          <h2>Summary</h2>
+          <p>{userDoc.details}</p>
+        </div>
+        <div className={styles.teamWrap}>
+          <h2>Project Team</h2>
+          <div className={styles.assignedUsers}>
+            {userDoc.assignedUsersList.map(user => (
+              <div key={user.id}>
+                <Avatar src={user.photoURL} />
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className={styles.msgsWrap}>
+          <h2>Messages</h2>
+          <p>{userDoc.category}</p>
+        </div>
+      </div>
     </div>
   )
 }

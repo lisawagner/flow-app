@@ -9,6 +9,8 @@ import { RiFolder3Fill, RiLock2Line } from "react-icons/ri";
 
 // TODO:  Refactor code into re-usable components
 //        'ButtonView' and 'ListView' for projects, plus NoProjectsView
+// TODO:  Add a 'key' to the single project page so that user can select
+//        their default view. Ie. key='overview', key='listview', key='boardview'
 
 const ProjectPage = ({ projects }) => {
   const allProjects = projects
@@ -26,7 +28,7 @@ const ProjectPage = ({ projects }) => {
             <div key={project.id} className={styles.pTileWrap}>
               <div className={styles.pTileCardWrap}>
                 <div className={styles.pTileCardContainer}>
-                  <Link to={`/projects/${project.id}`}  className={styles.pCardLinkWrap}>
+                  <Link to={`/projects/${project.id}/overview`}  className={styles.pCardLinkWrap}>
                     
                     <div className={styles.pCardLinkContainer}>
                       <div className={styles.pCardLinkWrap}>
