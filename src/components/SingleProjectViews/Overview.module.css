@@ -3,32 +3,23 @@
 }
 .overContainer {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 1.5rem;
+  grid-template-columns: 1fr;
+  align-items: start;
+  grid-gap: 1rem;
 }
-.summaryWrap {
-  grid-area: 1 / 1 / 2 / 6;
-}
-.teamWrap {
-  grid-area: 2 / 1 / 3 / 6;
-}
-.msgsWrap {
-  grid-area: 3 / 1 / 4 / 6;
-}
+
 .assignedUsers {
   display: flex;
 }
+.summaryContent{
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
 
-@media (min-width: 767px) {
-  .summaryWrap {
-    grid-area: 1 / 1 / 2 / 4;
-  }
-  .teamWrap {
-    grid-area: 2 / 1 / 3 / 4;
-  }
-  .msgsWrap {
-    grid-area: 1 / 4 / 3 / 6;
+/* Media Queries */
+@media (min-width: 820px) {
+  .overContainer {
+    grid-template-columns: 3fr 2fr;
   }
 }
