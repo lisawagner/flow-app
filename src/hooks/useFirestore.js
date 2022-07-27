@@ -56,7 +56,7 @@ export const useFirestore = (dataSource) => {
 
   }
 
-  // edit a document
+  // updat/edit a document
   const editDocument = async(itemId, value) => {
     dispatch({ type: "IS_PENDING" })
     // console.log("ID: ", itemId);
