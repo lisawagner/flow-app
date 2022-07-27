@@ -1,6 +1,4 @@
 .tabNavBarWrap {
-  
-
   padding-bottom: 0.25rem;
   border-bottom: 1px solid rgba(9,38,56,.2);
 
@@ -13,10 +11,7 @@
   column-gap: 1.25rem;
 }
 
-.tabNavBarWrap a:hover {
-  border-bottom: 3px solid rgba(9,138,156,.2);
+.tabNavItemLink:hover, .tabNavItemLink:active, .tabNavItemLink:focus {
+  border-bottom: 3px solid rgba(0,157,220,0.7);
 }
 
-.tabNavBarWrap a:active, .tabNavBarWrap a:focus {
-  border-bottom: 3px solid rgba(9,138,156,.3);
-}
