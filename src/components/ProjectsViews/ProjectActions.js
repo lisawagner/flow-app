@@ -4,9 +4,11 @@ import styles from './ProjectActions.module.css'
 const ProjectActions = ({ title }) => {
   return (
     <div className={styles.pActionsContainer}>
+
       <div className={styles.pActionsTitleBar}>
         <h1 className={styles.pActionsTitle}>All {title}</h1>
       </div>
+
       <div className={styles.pActions}>
         <div>
           <Link to='/create'>
@@ -15,7 +17,6 @@ const ProjectActions = ({ title }) => {
             </button>
           </Link>
         </div>
-        
       </div>
       
     </div>
