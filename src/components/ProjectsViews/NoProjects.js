@@ -9,8 +9,8 @@ const NoProjects = () => {
     <div className={styles.noProjectWrap}>
       <RiDraftLine className={styles.noProjectIcon}/>
       <h1>Ready to create your first project?</h1>
-      <p className={styles.hideOnSmall}>You do not have any active projects in right now.</p>
-      <p className={styles.hideOnSmall}>Go ahead and create your first project.</p>
+      <p className={styles.hideOnSmall}>You do not have any active projects right now.</p>
+      <p className={styles.hideOnSmall}>Go ahead, create your first project.</p>
       <Link to='/create'>
         <button type="button" tabIndex="0" className={styles.noProjectBtn}>
           <span>Create Project</span>
