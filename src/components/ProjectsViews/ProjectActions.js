@@ -18,7 +18,7 @@ const ProjectActions = ({ title }) => {
           </Link>
         </div>
       </div>
-      
+
     </div>
   )
 }
