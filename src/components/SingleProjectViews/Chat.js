@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Timestamp } from 'firebase/firestore'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useFirestore } from '../../hooks/useFirestore'
+import formatDistanceToNow from 'date-fns/formatDistanceToNow'
 import Avatar from '../Avatar/Avatar'
 // styles
 import styles from './Chat.module.css'
@@ -46,7 +47,9 @@ const Chat = ({document}) => {
             <div className={styles.msgDetails}>
               <div className={styles.msgDetailsHeader}>
                 <span>{message.displayName}</span>
-                <span className={styles.msgDate}>date here</span>
+                <span className={styles.msgDate}>
+                  {formatDistanceToNow(message.createdAt.toDate(), {addSuffix: true})}
+                </span>
               </div>
               <div className={styles.msgContent}>
                 <p>{message.content}</p>
