@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom'
 import NoProjects from './NoProjects';
 import { useAuthContext } from '../../hooks/useAuthContext'
@@ -8,16 +9,16 @@ import styles from './ProjectPage.module.css'
 // icons
 import { RiFolder3Fill, RiLock2Line } from "react-icons/ri";
 
+// TODO:  Add filter bar (MyProj/ AssignedProj/ ByCategory/ etc)
 // TODO:  Refactor code into re-usable components
-//        'ButtonView' and 'ListView' for projects, plus NoProjectsView
+//        'ButtonView' and 'ListView' for projects
 // TODO:  Add a 'key' to the single project page so that user can select
 //        their default view. Ie. key='overview', key='listview', key='boardview'
 
 const ProjectPage = ({ projects }) => {
   const { user } = useAuthContext()
 
-  const allProjects = projects
-
+  // create array of projects user is assigned to/member of
   const assignedProjects = projects ? projects.filter(project => {
     let assignedToMe = false
     project.assignedUsersList.forEach(u => {
@@ -27,9 +28,9 @@ const ProjectPage = ({ projects }) => {
     })
     return assignedToMe
   }) : null
+console.log('Assigned: ', assignedProjects);
 
-
-  // user.uid === project.createdBy.id
+  // create array of projects user created (whether member or not)
   const myProjects = projects ? projects.filter(project => {
     let madeByMe = false
     if(user.uid === project.createdBy.id) {
@@ -38,6 +39,12 @@ const ProjectPage = ({ projects }) => {
     return madeByMe
   }) : null
 
+  console.log('MyProjects: ', myProjects);
+
+  const allProjects = [...new Set([...assignedProjects, ...myProjects])]
+  console.log('AllProjects: ', allProjects);
+
+  // show all projects ( or no projects screen for new users)
   if (allProjects.length === 0) {
     return <NoProjects />
   } else {
