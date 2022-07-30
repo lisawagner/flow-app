@@ -28,7 +28,7 @@ const ProjectPage = ({ projects }) => {
     })
     return assignedToMe
   }) : null
-console.log('Assigned: ', assignedProjects);
+// console.log('Assigned: ', assignedProjects);
 
   // create array of projects user created (whether member or not)
   const myProjects = projects ? projects.filter(project => {
@@ -39,10 +39,10 @@ console.log('Assigned: ', assignedProjects);
     return madeByMe
   }) : null
 
-  console.log('MyProjects: ', myProjects);
+  // console.log('MyProjects: ', myProjects);
 
   const allProjects = [...new Set([...assignedProjects, ...myProjects])]
-  console.log('AllProjects: ', allProjects);
+  // console.log('AllProjects: ', allProjects);
 
   // show all projects ( or no projects screen for new users)
   if (allProjects.length === 0) {
