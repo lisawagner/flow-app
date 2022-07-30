@@ -73,6 +73,11 @@ const NewProject = () => {
       id: user.uid
     }
 
+    // const assignedColumn = {
+
+    // }
+
+
     // create project object to save to db
     const project = {
       name,
@@ -81,7 +86,17 @@ const NewProject = () => {
       dueDate: Timestamp.fromDate(new Date(dueDate)),
       assignedUsersList, 
       createdBy,
-      comments: []
+      comments: [],
+      tasks: [
+        { taskId: "8NaU7k", taskName: "Task 1", assignedColumn: { columnId: "W3PsY0" } },
+        // { taskId: "Wxxfs1", taskName: "", assignedColumn: [] },
+        // { taskId: "sPMpSH", taskName: "", assignedColumn: [] },
+      ],
+      columns: [
+        { columnId: "W3PsY0", columnName: "TODO" },
+        { columnId: "aUK4sR", columnName: "IN PROCESS" },
+        { columnId: "XfB1O8", columnName: "DONE" }
+      ]
     }
 
     // add project to firestore

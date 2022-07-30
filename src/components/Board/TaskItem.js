@@ -8,8 +8,10 @@ import { RiCheckboxCircleFill, RiCheckboxCircleLine } from "react-icons/ri";
 
 // TODO: add onhover effect to show task menu: edit/delete/markcomplete button
 
-const TaskItem = () => {
+const TaskItem = ({ name, columnDetails }) => {
   const { user } = useAuthContext()
+
+  console.log("Columns: ", columnDetails);
 
   return (
     <div className={styles.boardCardWrap}>
@@ -21,7 +23,7 @@ const TaskItem = () => {
               <RiCheckboxCircleLine />
             </div>
             {/* <h3>TaskItemName</h3> */}
-            <span>TaskItemName Task with long name, so long it's a bit much? Hah, for now, you can make the longest task item evah!</span>
+            <span>{name}</span>
           </div>
           {/* <span>createdAt (needed?)</span> */}
           <div className={styles.priorities}>
