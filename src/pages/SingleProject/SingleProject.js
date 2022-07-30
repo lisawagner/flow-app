@@ -21,7 +21,6 @@ const SingleProject = () => {
 
   return (
     <>
-      {/* <ProjectHeader title={userDoc.name} /> */}
       <ProjectHeader project={ userDoc } />
       <div className={styles.spWrap}>
         <TabNavBar />
