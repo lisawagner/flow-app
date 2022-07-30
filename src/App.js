@@ -66,6 +66,7 @@ function App() {
                     <SingleProject />
                   </TitleWrapper>
                 } >
+                  {/* These are the children (<Outlet />) of <SingleProject /> */}
                   <Route path="overview" element={<Overview />} />
                   <Route path="list" element={<ListView />} />
                   <Route path="board" element={<BoardView />} />
