@@ -1,0 +1,87 @@
+.boardCardContainer {
+  display: inline-flex;
+  margin: 0.5rem auto;
+  width: 100%;
+  background: var(--bg-color-secondary);
+  /* border: 1px solid lightgrey; */
+  border-radius: 6px;
+}
+.boardCardContent {
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  /* background: pink; */
+  row-gap: 4px;
+  padding: 8px;
+  min-width: 170px;
+  max-width: 270px;
+}
+/* Header */
+.boardCardHeader {
+  display: flex;
+  /* column-gap: 0.25rem; */
+  /* align-items: center; */
+
+  line-height: 22px;
+  max-height: 110px;
+
+}
+.boardCardHeader span {
+  text-indent: 1.5em;
+  margin-left: -1em;
+}
+/* text-indent: -2em; */
+.completionIndicator {
+  font-size: 1.25rem;
+  display: flex;
+  /* align-items: center; */
+}
+
+/* Priorities */
+.priorities {
+  display: flex;
+  flex-flow: wrap;
+
+}
+.cellWrapper {
+  max-width: 100%;
+}
+.pill {
+  border-radius: 10px;
+  box-sizing: border-box;
+  display: block;
+  font-size: 12px;
+  font-weight: 400;
+  height: 20px;
+  line-height: 20px;
+  overflow: hidden;
+  padding: 0 8px;
+  text-align: left;
+  white-space: nowrap;
+  background: var(--alert-color);
+}
+
+/* Board Card Footer */
+.boardCardFooter {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+.boardCardAssignees {
+  display: flex;
+  margin-right: 8px;
+}
+.assigneeAvatar {
+  display: inline-flex;
+  align-items: center;
+  border-color: transparent;
+  border-radius: 50%;
+  box-sizing: border-box;
+  
+  justify-content: center;
+  background: pink;
+}
+.assigneeAvatar div {
+  height: 27px;
+  width: 27px;
+}
