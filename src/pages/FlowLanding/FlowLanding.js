@@ -15,11 +15,13 @@ const FlowLanding = () => {
         <div className={styles.messageWrap}>
           <h1 className={styles.brandTitle}>&#123;Flow&#125;</h1>
           <h2 className={styles.subTitle}>Life-changing</h2>
-          <button>
+          
             <Link to="/flow">
-              <span>Get Started</span> 
+              <button>
+                <span>Get Started</span>
+              </button>
             </Link>
-          </button>
+          
         </div>
 
         <div className={styles.detailsWrap}>
