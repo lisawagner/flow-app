@@ -5,7 +5,11 @@
   background: var(--bg-color-secondary);
   /* border: 1px solid lightgrey; */
   border-radius: 6px;
+  /* cursor: pointer; */
 }
+/* .boardCardContainer:hover {
+  border: 1px solid lightgrey;
+} */
 .boardCardContent {
   display: flex;
   flex-direction: column;
@@ -15,7 +19,12 @@
   padding: 8px;
   min-width: 170px;
   max-width: 270px;
+  width: 100%;
+
+  
 }
+
+
 /* Header */
 .boardCardHeader {
   display: flex;
@@ -63,9 +72,34 @@
 
 /* Board Card Footer */
 .boardCardFooter {
-  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.cardFooterTop {
   display: flex;
   flex-direction: row;
+  align-items: center;
+
+}
+.cardFooterBottom {
+  display: flex;
+
+}
+.cardFooterBottom button {
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.cardFooterBottom button:hover {
+  /* background: var(--light-grey); */
+  box-sizing: border-box;
+  box-shadow: var(--ds-shadow-overlay,0 2px 4px -1px rgba(9,30,66,0.25),0 0 1px rgba(9,30,66,0.31));
+  color: var(--alert-color);
+  border-radius: 4px;
 }
 .boardCardAssignees {
   display: flex;
@@ -85,3 +119,5 @@
   height: 27px;
   width: 27px;
 }
+
+

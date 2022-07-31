@@ -1,0 +1,58 @@
+/* Drop down */
+.dropDownContainer {
+  /* position: fixed; */
+  /* position: absolute; */
+  position: relative;
+
+
+}
+.dropDownWrap {
+  /* margin-top: 0.5rem; */
+  background-color: var(--bg-color-tertiary);
+  border-radius: 3px;
+  box-sizing: border-box;
+  box-shadow: var(--ds-shadow-overlay,0 4px 8px -2px rgba(9,30,66,0.25),0 0 1px rgba(9,30,66,0.31));
+  position: absolute;
+  left: 50%;
+  right: auto;
+  /* transform: translateX(-50%); */
+  bottom: 50%;
+  transform: translateY(-80%);
+  
+
+  width: 170px;
+
+
+}
+.actionsIcon {
+  font-size: 1em;
+}
+
+.actionsItemBtn {
+  border: none;
+  color: #5E6C84;
+  font-size: 0.85em;
+  background-color: var(--bg-color-tertiary);
+  cursor: pointer;
+
+  padding: 6px 12px;
+  margin: 6px auto;
+
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+  width: 100%;
+}
+.actionsItemBtn:hover {
+  background: #EAEAEA;
+  
+}
+.delete {
+  /* color: #d33e5d; */
+  color: var(--alert-color)
+}
+.actionSpacer {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid var(--border-color);
+}
