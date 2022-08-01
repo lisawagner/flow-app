@@ -10,7 +10,7 @@ import TaskActions from './TaskActions';
 
 
 
-const TaskItem = ({ name, columnDetails }) => {
+const TaskItem = ({ name }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const { user } = useAuthContext()
@@ -70,38 +70,7 @@ const TaskItem = ({ name, columnDetails }) => {
         
       </div>
 
-      {isOpen && ( <TaskActions setIsOpen={setIsOpen} isOpen={isOpen} />
-        // TODO: Extract to separate component
-        // <div className={styles.dropDownContainer}>
-        //   <div className={styles.dropDownWrap}>
-        //     <div className={styles.actionsDropdown}>
-
-        //       <div >
-        //         <button
-        //           className={styles.actionsItemBtn}
-        //           onClick={handleToggle}
-        //         >
-        //           <RiPencilLine className={styles.actionsIcon}/>
-        //           <span>Edit project details</span>
-        //         </button>
-        //       </div>
-
-        //       <span className={styles.actionSpacer}></span>
-
-        //       <div >
-        //         <button
-        //           className={`${styles.actionsItemBtn} ${styles.delete}`}
-        //           onClick={handleToggle}
-        //           >
-        //             <RiDeleteBinLine className={styles.actionsIcon}/>
-        //             <span>Delete project</span> 
-        //         </button>
-        //       </div>
-
-        //     </div>
-        //   </div>
-        // </div>
-      )}
+      {isOpen && ( <TaskActions handler={handleToggle}/>)}
 
     </div>
   )

@@ -44,61 +44,23 @@ const BoardView = () => {
       <div>Columns - task categories/dynamic aka BoardColumnHeader</div>
 
 
-
-          {/* ----------------------------------------------- */}
-
-          {/* {columnTasks.map(column => (
-            <div key={column.columnId}>
-              <h1>{column.columnName}</h1>
-              {column.tasks.map(task => (
-                // <div></div>
-                <TaskItem name={task.taskName} key={task.taskId} />
-              ))}
-            </div>
-          ))} */}
-
-          {/* ----------------------------------------------- */}
-
-
-        {/* {userDoc.tasks.length > 0 && userDoc.tasks.map(task => (
-          <div key={task.taskId}>
-            <TaskItem name={task.taskName}  columnDetails={task.assignedColumn}/>
-          </div>
-        ))} */}
-
       <div className={styles.boardContainer}>
-
-      {columnTasks.map(column => (
         <div className={styles.boardColumnWrap}>
-            <div className={styles.boardColumnContainer} key={column.columnId}>
-              <div className={styles.boardColumnHeader}>
-                <h1>{column.columnName}</h1>
-              </div>
-              {column.tasks.map(task => (
-                
-                <div draggable="true" className={styles.boardColumnContent}>
-                  <TaskItem name={task.taskName} key={task.taskId} />
-                </div>
 
-              ))}
+        {columnTasks.map(column => (
+          <div className={styles.boardColumnContainer} key={column.columnId}>
+            <div className={styles.boardColumnHeader}>
+              <h2>{column.columnName}</h2>
             </div>
-            </div>
-            
+            {column.tasks.map(task => (
+              <div className={styles.boardColumnContent}>
+                <TaskItem name={task.taskName} />
+              </div>
+            ))}
+          </div>
         ))}
 
-        {/* <div className={styles.boardColumnWrap}>
-          <div className={styles.boardColumnContainer}>
-            <div className={styles.boardColumnHeader}>
-              <h2>ToDo</h2>  
-            </div>
-            <div className={styles.boardColumnContent}>
-              <TaskItem /> 
-              <TaskItem />
-              <TaskItem />
-            </div>
-          </div>
-        </div> */}
-
+        </div>
       </div>
       
     </div>
@@ -106,3 +68,42 @@ const BoardView = () => {
 }
 
 export default BoardView
+
+
+// {columnTasks.map(column => (
+//   <div className={styles.boardColumnWrap}>
+//       <div className={styles.boardColumnContainer} key={column.columnId}>
+//         <div className={styles.boardColumnHeader}>
+//           <h1>{column.columnName}</h1>
+//         </div>
+//         {column.tasks.map(task => (
+          
+//           <div draggable="true" className={styles.boardColumnContent}>
+//             <TaskItem name={task.taskName} key={task.taskId} />
+//           </div>
+
+//         ))}
+//       </div>
+//       </div>
+      
+//   ))}
+
+// -------------------------------------------------------------------
+
+// {columnTasks.map(column => (
+//   <div key={column.columnId}>
+//     <h1>{column.columnName}</h1>
+//     {column.tasks.map(task => (
+//       // <div></div>
+//       <TaskItem name={task.taskName} key={task.taskId} />
+//     ))}
+//   </div>
+// ))}
+
+//  ---------------------------------------------------------------------
+
+// {userDoc.tasks.length > 0 && userDoc.tasks.map(task => (
+//   <div key={task.taskId}>
+//     <TaskItem name={task.taskName}  columnDetails={task.assignedColumn}/>
+//   </div>
+// ))}

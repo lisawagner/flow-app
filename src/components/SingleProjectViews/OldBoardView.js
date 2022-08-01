@@ -53,6 +53,7 @@ const BoardView = () => {
 
 
 
+
         {userDoc.tasks.length > 0 && userDoc.tasks.map(task => (
           <div key={task.taskId}>
             <TaskItem name={task.taskName}  columnDetails={task.assignedColumn}/>

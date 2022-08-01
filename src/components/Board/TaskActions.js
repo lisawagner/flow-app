@@ -2,10 +2,7 @@ import styles from './TaskActions.module.css'
 // icons
 import { RiDeleteBinLine, RiPencilLine } from "react-icons/ri";
 
-const TaskActions = ({ setIsOpen, isOpen}) => {
-  const handleToggle = () => {
-    setIsOpen(!isOpen)
-  }
+const TaskActions = ({ handler }) => {
 
   return (
     <div>
@@ -16,10 +13,10 @@ const TaskActions = ({ setIsOpen, isOpen}) => {
               <div >
                 <button
                   className={styles.actionsItemBtn}
-                  onClick={handleToggle}
+                  onClick={handler}
                 >
                   <RiPencilLine className={styles.actionsIcon}/>
-                  <span>Edit project details</span>
+                  <span>Edit task details</span>
                 </button>
               </div>
 
@@ -28,10 +25,10 @@ const TaskActions = ({ setIsOpen, isOpen}) => {
               <div >
                 <button
                   className={`${styles.actionsItemBtn} ${styles.delete}`}
-                  onClick={handleToggle}
+                  onClick={handler}
                   >
                     <RiDeleteBinLine className={styles.actionsIcon}/>
-                    <span>Delete project</span> 
+                    <span>Delete task</span> 
                 </button>
               </div>
 
