@@ -1,4 +1,5 @@
 import { useOutletContext } from 'react-router-dom';
+import ColumnHeader from '../Board/ColumnHeader';
 // components
 import TaskItem from '../Board/TaskItem';
 // styles
@@ -49,9 +50,10 @@ const BoardView = () => {
 
         {columnTasks.map(column => (
           <div className={styles.boardColumnContainer} key={column.columnId}>
-            <div className={styles.boardColumnHeader}>
+            <ColumnHeader colName={column.columnName} />
+            {/* <div className={styles.boardColumnHeader}>
               <h2>{column.columnName}</h2>
-            </div>
+            </div> */}
             {column.tasks.map(task => (
               <div className={styles.boardColumnContent}>
                 <TaskItem name={task.taskName} />
