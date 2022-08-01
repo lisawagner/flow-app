@@ -1,14 +1,17 @@
 import { useState, useRef, useEffect } from 'react'
 import { useFirestore } from '../../hooks/useFirestore';
 import { useNavigate } from 'react-router-dom'
+import Modal from '../../components/Modal/Modal'
 // styles
 import styles from './ProjectActions.module.css'
 
 // icons
 import { RiArrowDownSLine, RiPencilLine, RiDeleteBinLine } from "react-icons/ri";
+import EditProjectForm from './EditProjectForm';
 
 const ProjectActions = ({ project }) => {
   const { deleteDocument } = useFirestore('projects')
+  const [showModal, setShowModal] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const projectBtnRef = useRef()
   const history = useNavigate()
@@ -21,6 +24,15 @@ const ProjectActions = ({ project }) => {
     deleteDocument(project.id)
     setIsOpen(!isOpen)
     history('/projects')
+  }
+  const handleEdit = ( project ) => {
+    setShowModal(!showModal)
+    setIsOpen(!isOpen)
+    // console.log("Handling edit for: ", project);
+  }
+
+  const handleClose = () => {
+    setShowModal(!showModal)
   }
 
   const handleClickOutside = (e) => {
@@ -35,6 +47,7 @@ const ProjectActions = ({ project }) => {
   }, []);
 
   return (
+  <>
     <div className={styles.pHeaderBtnWrap} ref={projectBtnRef}>
       <div className={styles.pHeaderBtnContainer}>
         <button
@@ -55,7 +68,7 @@ const ProjectActions = ({ project }) => {
               <div >
                 <button
                   className={styles.actionsItemBtn}
-                  onClick={handleToggle}
+                  onClick={() => handleEdit(project)}
                 >
                   <RiPencilLine className={styles.actionsIcon}/>
                   <span>Edit project details</span>
@@ -79,7 +92,15 @@ const ProjectActions = ({ project }) => {
         </div>
       )}
 
+      {showModal && (
+        <Modal>
+          {/* <button className={styles.closeBtn} onClick={() => setShowModal(!showModal)}>X</button> */}
+          <EditProjectForm project={project} onClose={handleClose}/>
+        </Modal>
+      )}
+
     </div>
+  </>
   )
 }
 
