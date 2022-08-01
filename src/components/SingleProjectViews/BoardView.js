@@ -4,11 +4,10 @@ import ColumnHeader from '../Board/ColumnHeader';
 import TaskItem from '../Board/TaskItem';
 // styles
 import styles from './BoardView.module.css'
-import { RiAddFill } from "react-icons/ri"
+
 
 const BoardView = () => {
   const { userDoc } = useOutletContext()
-  // console.log("BoardView OutletContext: ", userDoc);
 
   // const categorizedData = userDoc.tasks.reduce((acc, curr) => {
   //   const { taskId, taskName, assignedColumn} = curr
@@ -41,38 +40,22 @@ const BoardView = () => {
 
   return (
     <div>
-      <h1>BoardView</h1>
-      <p>Each project will have a bunch of tasks. Tasks will be sortable by Col/category and can be moved between categories/columns.</p>
-      <div>Columns - task categories/dynamic aka BoardColumnHeader</div>
-
-
       <div className={styles.boardContainer}>
         <div className={styles.boardColumnWrap}>
 
           {columnTasks.map(column => (
             <div className={styles.boardColumnContainer} key={column.columnId}>
               <ColumnHeader colName={column.columnName} />
-              {/* <div className={styles.boardColumnHeader}>
-                <h2>{column.columnName}</h2>
-              </div> */}
               {column.tasks.map(task => (
-                <div className={styles.boardColumnContent}>
+                <div key={task.taskId} className={styles.boardColumnContent}>
                   <TaskItem name={task.taskName} />
                 </div>
               ))}
-              <div className={styles.addTaskBtnWrap}>
-                <div className={styles.addTaskBtn} role="button" tabIndex="0">
-                  <RiAddFill />
-                  <span>Add task</span>
-                </div>
-              </div>
-            </div>
+            </div>  
           ))}
 
         </div>
-        
-      </div>
-      
+      </div> 
     </div>
   )
 }
