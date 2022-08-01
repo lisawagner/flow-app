@@ -7,6 +7,7 @@ import { Timestamp } from 'firebase/firestore'
 import Select from 'react-select'
 // styles
 import styles from './NewProject.module.css'
+import Projects from '../Projects/Projects'
 
 // TODO:  Consider coding a text editor for summary section
 //        or use a plugin
@@ -88,9 +89,9 @@ const NewProject = () => {
       createdBy,
       comments: [],
       tasks: [
-        { taskId: "8NaU7k", taskName: "Task 1", assignedColumn: { columnId: "W3PsY0" } },
-        // { taskId: "Wxxfs1", taskName: "", assignedColumn: [] },
-        // { taskId: "sPMpSH", taskName: "", assignedColumn: [] },
+        { taskId: "8NaU7k", taskName: "Task 1", assignedColumn: "W3PsY0" },
+        { taskId: "Wxxfs1", taskName: "Task 2", assignedColumn: "aUK4sR" },
+        { taskId: "sPMpSH", taskName: "Task 3", assignedColumn: "W3PsY0" },
       ],
       columns: [
         { columnId: "W3PsY0", columnName: "TODO" },

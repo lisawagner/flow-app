@@ -6,7 +6,36 @@ import styles from './BoardView.module.css'
 
 const BoardView = () => {
   const { userDoc } = useOutletContext()
-  console.log("BoardView OutletContext: ", userDoc);
+  // console.log("BoardView OutletContext: ", userDoc);
+
+  // const categorizedData = userDoc.tasks.reduce((acc, curr) => {
+  //   const { taskId, taskName, assignedColumn} = curr
+
+  //   if(!acc[assignedColumn]) {
+  //     acc[assignedColumn] = {
+  //       items: [],
+  //     }
+  //   }
+  //   acc[assignedColumn].items.push(taskName)
+
+  //   return acc
+  // }, {})
+
+  // console.log("Data by Column: ", categorizedData)
+
+  // Object.keys(categorizedData).map((key, index) => {
+  //   console.log((`Category: ${key}`))
+  //   categorizedData[key].items.map((item, index) => 
+  //     console.log((`Item ${index}: ${item}`))
+  //   )
+  // })
+
+  // mapping and filtering reduce -> functional programming
+  const columnTasks = userDoc.columns.map((c)=>{
+    c.tasks = userDoc.tasks.filter(t => t.assignedColumn === c.columnId);
+    return c;
+   })
+    console.log('THIS: ', columnTasks);
 
   return (
     <div>
@@ -14,51 +43,50 @@ const BoardView = () => {
       <p>Each project will have a bunch of tasks. Tasks will be sortable by Col/category and can be moved between categories/columns.</p>
       <div>Columns - task categories/dynamic aka BoardColumnHeader</div>
 
-      {/* {userDoc.columns.length > 0 && userDoc.columns.map(column => (
-          <div key={column.columnId}>
-            <h2>{column.columnName}</h2>
-            {userDoc.tasks.length > 0 && userDoc.tasks.map(task => (
-              <div key={task.taskId}>
-                <h2>{task.taskName}</h2>
-                <TaskItem /> 
-              </div>
-            ))}
-          </div>
-        ))} */}
-
-      {userDoc.tasks.length > 0 && userDoc.tasks.map(task => (
-        <div key={task.taskId}>
-
-        {userDoc.columns.length > 0 && userDoc.columns.map(column => (
-          <div key={column.columnId}>
-            <h1>{column.columnName}</h1>
-            <TaskItem name={task.taskName} />
-            {/* <TaskItem name={column.taskName}  columnDetails={column.columns}/> */}
-          </div>
-         
-        ))}
 
 
-        </div>
-      ))}
+          {/* ----------------------------------------------- */}
 
-        {userDoc.tasks.length > 0 && userDoc.tasks.map(task => (
+          {/* {columnTasks.map(column => (
+            <div key={column.columnId}>
+              <h1>{column.columnName}</h1>
+              {column.tasks.map(task => (
+                // <div></div>
+                <TaskItem name={task.taskName} key={task.taskId} />
+              ))}
+            </div>
+          ))} */}
+
+          {/* ----------------------------------------------- */}
+
+
+        {/* {userDoc.tasks.length > 0 && userDoc.tasks.map(task => (
           <div key={task.taskId}>
             <TaskItem name={task.taskName}  columnDetails={task.assignedColumn}/>
-          </div>
-         
-        ))}
-
-      {/* {userDoc.tasks.length > 0 && userDoc.tasks.map(task => (
-          <div key={task.taskId}>
-            <h2>{task.taskName}: {task.columns.columnName}</h2>
           </div>
         ))} */}
 
       <div className={styles.boardContainer}>
-        <div className={styles.boardColumnWrap}>
-        
 
+      {columnTasks.map(column => (
+        <div className={styles.boardColumnWrap}>
+            <div className={styles.boardColumnContainer} key={column.columnId}>
+              <div className={styles.boardColumnHeader}>
+                <h1>{column.columnName}</h1>
+              </div>
+              {column.tasks.map(task => (
+                
+                <div draggable="true" className={styles.boardColumnContent}>
+                  <TaskItem name={task.taskName} key={task.taskId} />
+                </div>
+
+              ))}
+            </div>
+            </div>
+            
+        ))}
+
+        {/* <div className={styles.boardColumnWrap}>
           <div className={styles.boardColumnContainer}>
             <div className={styles.boardColumnHeader}>
               <h2>ToDo</h2>  
@@ -69,45 +97,9 @@ const BoardView = () => {
               <TaskItem />
             </div>
           </div>
+        </div> */}
 
-          {/* <div className={styles.boardColumnContainer}>
-            <div className={styles.boardColumnHeader}>
-              <h2>In Progress</h2>  
-            </div>
-            <div className={styles.boardColumnContent}>
-              <TaskItem /> 
-              <TaskItem />
-              <TaskItem />
-            </div>
-          </div> */}
-
-          {/* <div className={styles.boardColumnContainer}>
-            <div className={styles.boardColumnHeader}>
-              <h2>Done</h2>  
-            </div>
-            <div className={styles.boardColumnContent}>
-              <TaskItem /> 
-              <TaskItem />
-              <TaskItem />
-            </div>
-          </div> */}
-
-          {/* <div className={styles.boardColumnContainer}>
-            <div className={styles.boardColumnHeader}>
-              <h2>Done</h2>  
-            </div>
-            <div className={styles.boardColumnContent}>
-              <TaskItem /> 
-              <TaskItem />
-              <TaskItem />
-            </div>
-          </div> */}
-
-        </div>
       </div>
-
-      {/* <div>Tasks</div>
-      <TaskItem /> */}
       
     </div>
   )
