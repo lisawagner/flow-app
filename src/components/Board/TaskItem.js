@@ -4,7 +4,7 @@ import Avatar from '../Avatar/Avatar';
 // styles
 import styles from './TaskItem.module.css'
 // icons
-import { RiCheckboxCircleFill, RiCheckboxCircleLine, RiMore2Fill, RiDeleteBinLine, RiPencilLine } from "react-icons/ri";
+import { RiCheckboxCircleFill, RiCheckboxCircleLine, RiMore2Fill } from "react-icons/ri";
 import TaskActions from './TaskActions';
 // ^ switch between icon types onclick (isDone, setIsDone)
 
@@ -12,7 +12,7 @@ import TaskActions from './TaskActions';
 
 const TaskItem = ({ name }) => {
   const [isOpen, setIsOpen] = useState(false)
-
+  const [style, setStyle] = useState({display: 'none'})
   const { user } = useAuthContext()
 
   const handleToggle = () => {
@@ -24,7 +24,11 @@ const TaskItem = ({ name }) => {
   return (
     <div className={styles.boardCardWrap}>
 
-      <div className={styles.boardCardContainer}>
+      <div
+        className={styles.boardCardContainer}
+        onMouseEnter={e => { setStyle({display: 'flex'}); }}
+        onMouseLeave={e => { setStyle({display: 'none'}); }}
+      >
 
         <div className={styles.boardCardContent}>
           <div className={styles.boardCardHeader}>
@@ -59,8 +63,10 @@ const TaskItem = ({ name }) => {
                 type='button'
                 className={styles.cardActions}
                 onClick={handleToggle}
+                // onMouseEnter={e => { setStyle({display: 'flex'}); }}
+                // onMouseLeave={e => { setStyle({display: 'none'}); }}
                 >
-                  <RiMore2Fill />
+                  <RiMore2Fill style={style} />
                 </button>
             </div>
           </div>
