@@ -24,6 +24,38 @@
   /* width: 100%; */
 }
 
+/* Add Task Button */
+.addTaskBtnWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 2em;
+  padding: 4px;
+
+  transition-duration: .3s;
+  cursor: pointer;
+
+}
+.addTaskBtnWrap:hover {
+  background: #DEDEDE;
+  border-radius: 4px;
+}
+.addTaskBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin: 1em auto; */
+  column-gap: 0.5em;
+
+  font-weight: 700;
+  color: var(--font-color-secondary);
+
+  padding: 4px;
+  overflow: hidden;
+  transition-duration: .2s;
+
+}
+
 /* Media Queries */
 @media (min-width: 541px) {
   .boardColumnWrap {

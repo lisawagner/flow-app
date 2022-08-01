@@ -4,6 +4,7 @@ import ColumnHeader from '../Board/ColumnHeader';
 import TaskItem from '../Board/TaskItem';
 // styles
 import styles from './BoardView.module.css'
+import { RiAddFill } from "react-icons/ri"
 
 const BoardView = () => {
   const { userDoc } = useOutletContext()
@@ -48,21 +49,28 @@ const BoardView = () => {
       <div className={styles.boardContainer}>
         <div className={styles.boardColumnWrap}>
 
-        {columnTasks.map(column => (
-          <div className={styles.boardColumnContainer} key={column.columnId}>
-            <ColumnHeader colName={column.columnName} />
-            {/* <div className={styles.boardColumnHeader}>
-              <h2>{column.columnName}</h2>
-            </div> */}
-            {column.tasks.map(task => (
-              <div className={styles.boardColumnContent}>
-                <TaskItem name={task.taskName} />
+          {columnTasks.map(column => (
+            <div className={styles.boardColumnContainer} key={column.columnId}>
+              <ColumnHeader colName={column.columnName} />
+              {/* <div className={styles.boardColumnHeader}>
+                <h2>{column.columnName}</h2>
+              </div> */}
+              {column.tasks.map(task => (
+                <div className={styles.boardColumnContent}>
+                  <TaskItem name={task.taskName} />
+                </div>
+              ))}
+              <div className={styles.addTaskBtnWrap}>
+                <div className={styles.addTaskBtn} role="button" tabIndex="0">
+                  <RiAddFill />
+                  <span>Add task</span>
+                </div>
               </div>
-            ))}
-          </div>
-        ))}
+            </div>
+          ))}
 
         </div>
+        
       </div>
       
     </div>
