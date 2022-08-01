@@ -3,3 +3,24 @@
   justify-content: space-between;
   align-items: center;
 }
+.boardColumnHeader h2 {
+  line-height: 1.5em;
+}
+.colActionsBtn {
+  border: none;
+  background: none;
+  font-size: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  color: var(--font-color-secondary);
+  padding: 4px;
+}
+
+.colActionsBtn:hover {
+  box-sizing: border-box;
+  box-shadow: 0 2px 4px -1px rgba(9,30,66,0.25),0 0 1px rgba(9,30,66,0.31);
+  /* color: var(--alert-color); */
+  border-radius: 4px;
+}
