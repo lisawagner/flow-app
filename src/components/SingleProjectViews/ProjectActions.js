@@ -10,6 +10,7 @@ import { RiArrowDownSLine, RiPencilLine, RiDeleteBinLine } from "react-icons/ri"
 const ProjectActions = ({ project }) => {
   const { deleteDocument } = useFirestore('projects')
   const [isOpen, setIsOpen] = useState(false)
+  const projectBtnRef = useRef()
   const history = useNavigate()
 
   const handleToggle = () => {
@@ -22,8 +23,19 @@ const ProjectActions = ({ project }) => {
     history('/projects')
   }
 
+  const handleClickOutside = (e) => {
+    if (projectBtnRef.current && !projectBtnRef.current.contains(e.target)) {
+      setIsOpen(false)
+    }
+    };
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown",  handleClickOutside);
+  }, []);
+
   return (
-    <div className={styles.pHeaderBtnWrap}>
+    <div className={styles.pHeaderBtnWrap} ref={projectBtnRef}>
       <div className={styles.pHeaderBtnContainer}>
         <button
           type='button'

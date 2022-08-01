@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { useAuthContext } from '../../hooks/useAuthContext'
 import Avatar from '../Avatar/Avatar';
 // styles
@@ -9,15 +9,26 @@ import TaskActions from './TaskActions';
 // ^ switch between icon types onclick (isDone, setIsDone)
 
 
-
 const TaskItem = ({ name }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [style, setStyle] = useState({display: 'none'})
   const { user } = useAuthContext()
+  const taskBtnRef = useRef()
 
   const handleToggle = () => {
     setIsOpen(!isOpen)
   }
+
+  const handleClickOutside = (e) => {
+    if (taskBtnRef.current && !taskBtnRef.current.contains(e.target)) {
+      setIsOpen(false)
+    }
+  }
+
+  useEffect(() => {
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown",  handleClickOutside);
+  }, [])
 
   // console.log("Columns: ", columnDetails);
 
@@ -35,7 +46,6 @@ const TaskItem = ({ name }) => {
             <div className={styles.completionIndicator}>
               <RiCheckboxCircleLine />
             </div>
-            {/* <h3>TaskItemName</h3> */}
             <span>{name}</span>
           </div>
           {/* <span>createdAt (needed?)</span> */}
@@ -58,13 +68,11 @@ const TaskItem = ({ name }) => {
               </div>
             </div>
 
-            <div className={styles.cardFooterBottom}>
+            <div className={styles.cardFooterBottom} ref={taskBtnRef}>
               <button
                 type='button'
                 className={styles.cardActions}
                 onClick={handleToggle}
-                // onMouseEnter={e => { setStyle({display: 'flex'}); }}
-                // onMouseLeave={e => { setStyle({display: 'none'}); }}
                 >
                   <RiMore2Fill style={style} />
                 </button>
