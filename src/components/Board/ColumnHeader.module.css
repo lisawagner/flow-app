@@ -6,6 +6,12 @@
 .boardColumnHeader h2 {
   line-height: 1.5em;
 }
+.colHeaderRight {
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+
 .colActionsBtn {
   border: none;
   background: none;

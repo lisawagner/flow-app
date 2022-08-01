@@ -4,6 +4,7 @@ import ColumnActions from './ColumnActions';
 import styles from './ColumnHeader.module.css'
 // icons
 import { RiMoreFill } from "react-icons/ri";
+import AddTaskBtn from './AddTaskBtn';
 
 const ColumnHeader = ({ colName }) => {
   const [isOpen, setIsOpen] = useState(false)
@@ -28,6 +29,9 @@ const ColumnHeader = ({ colName }) => {
     <div>
       <div className={styles.boardColumnHeader}>
         <h2>{colName}</h2>
+
+        <div className={styles.colHeaderRight}>
+        <AddTaskBtn />
         <div className={styles.colActionsBtnWrap} ref={colBtnRef}>
           <button
             type='button'
@@ -36,7 +40,7 @@ const ColumnHeader = ({ colName }) => {
           >
             <RiMoreFill />
           </button>
-          
+        </div>
         </div>
       </div>
 
