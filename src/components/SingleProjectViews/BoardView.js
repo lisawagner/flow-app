@@ -9,34 +9,11 @@ import styles from './BoardView.module.css'
 const BoardView = () => {
   const { userDoc } = useOutletContext()
 
-  // const categorizedData = userDoc.tasks.reduce((acc, curr) => {
-  //   const { taskId, taskName, assignedColumn} = curr
-
-  //   if(!acc[assignedColumn]) {
-  //     acc[assignedColumn] = {
-  //       items: [],
-  //     }
-  //   }
-  //   acc[assignedColumn].items.push(taskName)
-
-  //   return acc
-  // }, {})
-
-  // console.log("Data by Column: ", categorizedData)
-
-  // Object.keys(categorizedData).map((key, index) => {
-  //   console.log((`Category: ${key}`))
-  //   categorizedData[key].items.map((item, index) => 
-  //     console.log((`Item ${index}: ${item}`))
-  //   )
-  // })
-
-  // mapping and filtering reduce -> functional programming
   const columnTasks = userDoc.columns.map((c)=>{
     c.tasks = userDoc.tasks.filter(t => t.assignedColumn === c.columnId);
     return c;
    })
-    console.log('THIS: ', columnTasks);
+    // console.log('THIS: ', columnTasks);
 
   return (
     <div>
@@ -48,7 +25,7 @@ const BoardView = () => {
               <ColumnHeader colName={column.columnName} />
               {column.tasks.map(task => (
                 <div key={task.taskId} className={styles.boardColumnContent}>
-                  <TaskItem name={task.taskName} />
+                  <TaskItem name={task.taskName} priority={task.priority} />
                 </div>
               ))}
             </div>  
