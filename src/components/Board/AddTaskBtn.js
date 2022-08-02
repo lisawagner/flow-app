@@ -3,9 +3,10 @@ import Modal from '../../components/Modal/Modal'
 // styles
 import styles from './AddTaskBtn.module.css'
 import { RiAddFill } from "react-icons/ri"
+import AddTaskForm from '../TaskForms/AddTaskForm';
 
 const AddTaskBtn = () => {
-  const [isNewTask, setIsNewTask] = useState(false)
+  // const [isNewTask, setIsNewTask] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
   const handleAddTask = () => {
@@ -31,8 +32,7 @@ const AddTaskBtn = () => {
       </div>
       {showModal && (
         <Modal>
-          <button className={styles.closeBtn} onClick={() => setShowModal(!showModal)}>X</button>
-          <p>AddTask form component here</p>
+          <AddTaskForm onClose={handleClose} />
         </Modal>
       )}
 
