@@ -7,7 +7,6 @@ import { Timestamp } from 'firebase/firestore'
 import Select from 'react-select'
 // styles
 import styles from './NewProject.module.css'
-import Projects from '../Projects/Projects'
 
 // TODO:  Consider coding a text editor for summary section
 //        or use a plugin
