@@ -9,7 +9,7 @@ import TaskActions from './TaskActions';
 // ^ switch between icon types onclick (isDone, setIsDone)
 
 
-const TaskItem = ({ name }) => {
+const TaskItem = ({ name, priority }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [style, setStyle] = useState({display: 'none'})
   const { user } = useAuthContext()
@@ -42,32 +42,28 @@ const TaskItem = ({ name }) => {
       >
 
         <div className={styles.boardCardContent}>
+          
           <div className={styles.boardCardHeader}>
             <div className={styles.completionIndicator}>
               <RiCheckboxCircleLine />
             </div>
             <span>{name}</span>
           </div>
-          {/* <span>createdAt (needed?)</span> */}
+
           <div className={styles.priorities}>
             <div className={styles.cellWrapper}>
-              <div className={styles.pill}>priorityLevel</div>
+              <div className={styles.pill}>{priority}</div>
             </div>
           </div>
+          
           <div className={styles.boardCardFooter}>
             <div className={styles.cardFooterTop}>
               <div className={styles.boardCardAssignees}>
                 <div className={styles.assigneeAvatar}>
-                <Avatar src={user.photoURL}/> 
-                </div>
-              </div>
-              <div className={styles.dueDateWrap}>
-                <div className={styles.dueDateContainer}>
-                  <span>dueDate</span>
+                  <Avatar src={user.photoURL}/> 
                 </div>
               </div>
             </div>
-
             <div className={styles.cardFooterBottom} ref={taskBtnRef}>
               <button
                 type='button'
@@ -80,8 +76,6 @@ const TaskItem = ({ name }) => {
           </div>
 
         </div>
-        
-        
       </div>
 
       {isOpen && ( <TaskActions handler={handleToggle}/>)}

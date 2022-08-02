@@ -89,9 +89,24 @@ const NewProject = () => {
       createdBy,
       comments: [],
       tasks: [
-        { taskId: "8NaU7k", taskName: "Task 1", assignedColumn: "W3PsY0" },
-        { taskId: "Wxxfs1", taskName: "Task 2", assignedColumn: "aUK4sR" },
-        { taskId: "sPMpSH", taskName: "Task 3", assignedColumn: "W3PsY0" },
+        {
+          taskId: "8NaU7k",
+          taskName: "Task 1",
+          priority: 'high',
+          assignedColumn: "W3PsY0"
+        },
+        {
+          taskId: "Wxxfs1",
+          taskName: "Task 2",
+          priority: 'medium',
+          assignedColumn: "aUK4sR"
+        },
+        {
+          taskId: "sPMpSH",
+          taskName: "Task 3",
+          priority: 'low',
+          assignedColumn: "W3PsY0"
+        },
       ],
       columns: [
         { columnId: "W3PsY0", columnName: "TODO" },
