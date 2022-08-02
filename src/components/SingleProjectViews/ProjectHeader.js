@@ -3,7 +3,7 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 // styles
 import styles from './ProjectHeader.module.css'
 
-const ProjectHeader = ({ project}) => {
+const ProjectHeader = ({ project }) => {
 
   const { user } = useAuthContext()
   
