@@ -42,7 +42,7 @@ const Signup = ({ isUser, setIsUser }) => {
 
     setAvatarError(null)
     setAvatar(selected)
-    console.log('Avatar updated!');
+    // console.log('Avatar updated!');
   }
 
   return (

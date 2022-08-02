@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { auth, storage, db } from '../firebase/config'
-import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth'
+import { createUserWithEmailAndPassword, updateProfile, getAuth, sendSignInLinkToEmail } from 'firebase/auth'
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage'
 import { doc, setDoc } from 'firebase/firestore'
 import { useAuthContext } from './useAuthContext'
@@ -9,6 +9,7 @@ export const useSignup = () => {
   const [error, setError] = useState(null)
   const [isPending, setIsPending] = useState(false)
   const { dispatch } = useAuthContext()
+  const newAuth = getAuth()
 
   const signup = async ( email, password, displayName, avatar) => {
     setError(null)
@@ -28,6 +29,21 @@ export const useSignup = () => {
       if (!res) {
         throw new Error('Could not complete signup. Please check your credentials and try again')
       }
+
+      // const actionCodeSettings = {
+      //   url: 'http://localhost:3000/home',
+      //   handleCodeInApp: true,
+      // }
+      // console.log('THIS!' + res.user.email);
+
+      // send sign in validation email
+      // sendSignInLinkToEmail(newAuth, res.user.email, actionCodeSettings)
+      //   .then(() => {
+      //     window.localStorage.setItem('emailForSignIn', res.user.email);
+      //   })
+      //   .catch((err) => {
+      //     console.log(err.message)
+      //   })
 
       // add user avatar folder to storage with uid key and filename
       const uploadRef = ref(storage, `avatars/${res.user.uid}/${avatar.name}`)
