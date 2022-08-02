@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { auth, storage, db } from '../firebase/config'
-import { createUserWithEmailAndPassword, updateProfile, getAuth, sendSignInLinkToEmail } from 'firebase/auth'
+import { createUserWithEmailAndPassword, updateProfile, getAuth, sendEmailVerification } from 'firebase/auth'
 import { ref, getDownloadURL, uploadBytes } from 'firebase/storage'
 import { doc, setDoc } from 'firebase/firestore'
 import { useAuthContext } from './useAuthContext'
@@ -30,21 +30,6 @@ export const useSignup = () => {
         throw new Error('Could not complete signup. Please check your credentials and try again')
       }
 
-      // const actionCodeSettings = {
-      //   url: 'http://localhost:3000/home',
-      //   handleCodeInApp: true,
-      // }
-      // console.log('THIS!' + res.user.email);
-
-      // send sign in validation email
-      // sendSignInLinkToEmail(newAuth, res.user.email, actionCodeSettings)
-      //   .then(() => {
-      //     window.localStorage.setItem('emailForSignIn', res.user.email);
-      //   })
-      //   .catch((err) => {
-      //     console.log(err.message)
-      //   })
-
       // add user avatar folder to storage with uid key and filename
       const uploadRef = ref(storage, `avatars/${res.user.uid}/${avatar.name}`)
 
@@ -72,6 +57,13 @@ export const useSignup = () => {
 
       // dispatch login action
       dispatch({ type: 'LOGIN', payload: res.user })
+
+      // send verification email
+      sendEmailVerification(newAuth.currentUser)
+        .then(() => {
+          console.log('Email verification sent!');
+          // need site on live server to finish set up for email verification
+        })
 
       setIsPending(false)
       setError(null)
