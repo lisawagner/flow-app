@@ -25,7 +25,12 @@ const BoardView = () => {
               <ColumnHeader colName={column.columnName} />
               {column.tasks.map(task => (
                 <div key={task.taskId} className={styles.boardColumnContent}>
-                  <TaskItem name={task.taskName} priority={task.priority} id={task.taskId} />
+                  <TaskItem
+                    name={task.taskName}
+                    priority={task.priority}
+                    id={task.taskId}
+                    lane={task.assignedColumn}
+                  />
                 </div>
               ))}
             </div>  

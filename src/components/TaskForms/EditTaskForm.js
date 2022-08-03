@@ -22,7 +22,7 @@ const priorities = [
 
 // this is not working.
 
-const EditTaskForm = ({ onClose, id, name }) => {
+const EditTaskForm = ({ onClose, id, name, taskPriority, lane }) => {
   const { userDoc } = useOutletContext()
   const { user } = useAuthContext()
   const [taskName, setTaskName] = useState(name)
@@ -37,8 +37,9 @@ const EditTaskForm = ({ onClose, id, name }) => {
   // )
   // console.log('Found Projects: ', projects);
 
-  // let taskRef = collection(db, "projects", userDoc.id, "tasks", userDoc.tasks.taskId, id)
-  
+  // let taskRef = collection(db, "projects", userDoc.id, "tasks", "taskId", id)
+  // let taskRef = collection(db, "projects", userDoc.id, "tasks")
+
   // onSnapshot(taskRef, (querySnapshot) => {
   //   querySnapshot.forEach((doc) => {
   //     console.log("Id: ", doc.id, "Data: ", doc.data());
@@ -51,11 +52,11 @@ const EditTaskForm = ({ onClose, id, name }) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-
-
     // const updatedTask = {
     //   taskName,
     //   priority: priority.value,
+    //   assignedColumn: lane,
+    //   taskId: id,
     // }
     
     // editDocument(userDoc.id, {

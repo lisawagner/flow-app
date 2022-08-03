@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react'
-import { useOutletContext } from 'react-router-dom';
+// import { useOutletContext } from 'react-router-dom';
 import Modal from '../../components/Modal/Modal'
 import EditTaskForm from '../../components/TaskForms/EditTaskForm'
 
@@ -8,11 +8,11 @@ import styles from './TaskActions.module.css'
 // icons
 import { RiDeleteBinLine, RiPencilLine } from "react-icons/ri";
 
-const TaskActions = ({ handler, id, name, setIsOpen }) => {
+const TaskActions = ({ handler, id, name, priority, lane, setIsOpen }) => {
   const [showModal, setShowModal] = useState(false)
-  const { userDoc } = useOutletContext()
+  // const { userDoc } = useOutletContext()
 
-  const handleEdit = (userDoc) => {
+  const handleEdit = () => {
     setShowModal(true)
     console.log('MODAL!');
   }
@@ -36,7 +36,7 @@ const TaskActions = ({ handler, id, name, setIsOpen }) => {
               <div >
                 <button
                   className={styles.actionsItemBtn}
-                  onClick={() => handleEdit(userDoc)}
+                  onClick={() => handleEdit()}
                   // onClick={handleClick}
                 >
                   <RiPencilLine className={styles.actionsIcon}/>
@@ -61,7 +61,7 @@ const TaskActions = ({ handler, id, name, setIsOpen }) => {
 
         {showModal && ( 
         <Modal>
-          <EditTaskForm onClose={handleClose} id={id} name={name} />
+          <EditTaskForm onClose={handleClose} id={id} name={name} taskPriority={priority} lane={lane}/>
         </Modal> )}
         
 

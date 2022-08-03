@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { useAuthContext } from '../../hooks/useAuthContext'
+import { useOutletContext } from 'react-router-dom';
 import Avatar from '../Avatar/Avatar';
 // styles
 import styles from './TaskItem.module.css'
@@ -9,15 +10,20 @@ import TaskActions from './TaskActions';
 // ^ switch between icon types onclick (isDone, setIsDone)
 
 
-const TaskItem = ({ name, priority, id }) => {
+const TaskItem = ({ name, priority, id, lane }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [style, setStyle] = useState({display: 'none'})
+  const { userDoc } = useOutletContext()
   const { user } = useAuthContext()
   const taskBtnRef = useRef()
+  
 
   const handleToggle = () => {
     setIsOpen(!isOpen)
   }
+  
+
+  console.log('TaskItem: ', id);
 
   // const handleClickOutside = (e) => {
   //   if (taskBtnRef.current && !taskBtnRef.current.contains(e.target)) {
@@ -78,7 +84,19 @@ const TaskItem = ({ name, priority, id }) => {
         </div>
       </div>
 
-      {isOpen && ( <TaskActions setIsOpen={setIsOpen} handler={handleToggle} name={name} id={id}/>)}
+      {/* if user is creator, or assigned to project, allow update/del/add */}
+
+      {isOpen &&  (
+        <TaskActions
+          setIsOpen={setIsOpen}
+          handler={handleToggle}
+          priority={priority}
+          lane={lane}
+          name={name}
+          id={id}
+        />
+      )}
+
 
     </div>
   )
