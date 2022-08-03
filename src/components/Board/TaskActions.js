@@ -1,11 +1,34 @@
+import { useState, useRef, useEffect } from 'react'
+import { useOutletContext } from 'react-router-dom';
+import Modal from '../../components/Modal/Modal'
+import EditTaskForm from '../../components/TaskForms/EditTaskForm'
+
+// styles
 import styles from './TaskActions.module.css'
 // icons
 import { RiDeleteBinLine, RiPencilLine } from "react-icons/ri";
 
-const TaskActions = ({ handler }) => {
+const TaskActions = ({ handler, id, name, setIsOpen }) => {
+  const [showModal, setShowModal] = useState(false)
+  const { userDoc } = useOutletContext()
+
+  const handleEdit = (userDoc) => {
+    setShowModal(true)
+    console.log('MODAL!');
+  }
+
+  const handleClick = () => {
+    console.log('MODAL!!!!!!!!!!!!');
+  }
+
+  const handleClose = () => {
+    setShowModal(!showModal)
+    setIsOpen(false)
+  }
+
 
   return (
-    <div>
+    <>
         <div className={styles.dropDownContainer}>
           <div className={styles.dropDownWrap}>
             <div className={styles.actionsDropdown}>
@@ -13,10 +36,11 @@ const TaskActions = ({ handler }) => {
               <div >
                 <button
                   className={styles.actionsItemBtn}
-                  onClick={handler}
+                  onClick={() => handleEdit(userDoc)}
+                  // onClick={handleClick}
                 >
                   <RiPencilLine className={styles.actionsIcon}/>
-                  <span>Edit task details</span>
+                  <span>Edit TASK details</span>
                 </button>
               </div>
 
@@ -34,8 +58,15 @@ const TaskActions = ({ handler }) => {
 
             </div>
           </div>
+
+        {showModal && ( 
+        <Modal>
+          <EditTaskForm onClose={handleClose} id={id} name={name} />
+        </Modal> )}
+        
+
         </div>
-    </div>
+    </>
   )
 }
 
