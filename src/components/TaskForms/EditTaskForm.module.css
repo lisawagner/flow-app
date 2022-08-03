@@ -1,0 +1,75 @@
+.formLabel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  margin: 1rem auto;
+}
+.formLabel span {
+  margin-top: 12px;
+  margin-bottom: 6px;
+  font-weight: 500;
+  font-size: 1.2em;
+}
+.formLabel input {
+  height: 2.5rem;
+  padding-left: 8px;
+  padding-right: 8px;
+
+  font-size: 1rem;
+
+  border: var(--border-color) solid 1px;
+  border-radius: 3px;
+}
+.formLabel input:focus {
+  outline: none;
+  border: rgba(0,157,220,0.2) solid 2px;
+}
+.addTaskSelect {
+  height: 2.5rem;
+}
+
+/* Bottom Buttons */
+.newBtnsWrap {
+  margin-top: 1.5rem;
+  
+  display: flex;
+  justify-content: flex-end;
+  column-gap: 0.35rem;
+}
+.cancelBtn {
+  padding: 10px 14px;
+
+  background: var(--bg-color-secondary);
+  color: var(--font-color-primary);
+
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+.cancelBtn:hover {
+  background: var(--light-grey);
+}
+.editBtn {
+  padding: 10px 14px;
+
+  background: var(--accent-color);
+  color: white;
+
+  border-radius: 4px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: all 0.4s ease-out;
+}
+.editBtn:hover {
+  background: rgba(0,157,220,0.7)
+}
+/* .error {
+  font-style: italic;
+  color: var(--alert-color);
+  margin: 1.5rem auto 1rem;
+} */
+

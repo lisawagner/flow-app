@@ -9,7 +9,7 @@ import TaskActions from './TaskActions';
 // ^ switch between icon types onclick (isDone, setIsDone)
 
 
-const TaskItem = ({ name, priority }) => {
+const TaskItem = ({ name, priority, id }) => {
   const [isOpen, setIsOpen] = useState(false)
   const [style, setStyle] = useState({display: 'none'})
   const { user } = useAuthContext()
@@ -19,16 +19,16 @@ const TaskItem = ({ name, priority }) => {
     setIsOpen(!isOpen)
   }
 
-  const handleClickOutside = (e) => {
-    if (taskBtnRef.current && !taskBtnRef.current.contains(e.target)) {
-      setIsOpen(false)
-    }
-  }
+  // const handleClickOutside = (e) => {
+  //   if (taskBtnRef.current && !taskBtnRef.current.contains(e.target)) {
+  //     setIsOpen(false)
+  //   }
+  // }
 
-  useEffect(() => {
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown",  handleClickOutside);
-  }, [])
+  // useEffect(() => {
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => document.removeEventListener("mousedown",  handleClickOutside);
+  // }, [])
 
   // console.log("Columns: ", columnDetails);
 
@@ -78,7 +78,7 @@ const TaskItem = ({ name, priority }) => {
         </div>
       </div>
 
-      {isOpen && ( <TaskActions handler={handleToggle}/>)}
+      {isOpen && ( <TaskActions setIsOpen={setIsOpen} handler={handleToggle} name={name} id={id}/>)}
 
     </div>
   )
