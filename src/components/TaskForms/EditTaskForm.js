@@ -7,7 +7,7 @@ import { useAuthContext } from '../../hooks/useAuthContext';
 // firebase
 import { db } from '../../firebase/config';
 import { useFirestore } from '../../hooks/useFirestore';
-import { updateDoc, doc, getDoc, onSnapshot, collection, query, where, getDocs } from 'firebase/firestore';
+import { updateDoc, doc, getDoc, query, where, getDocs } from 'firebase/firestore';
 
 // styles
 import styles from './EditTaskForm.module.css'
@@ -30,28 +30,11 @@ const EditTaskForm = ({ onClose, id, name, taskPriority, lane }) => {
   // const [assignedColumn, setAssignedColumn] = useState('')
   const { editDocument, response } = useFirestore('projects')
 
-  // const { documents: projects, error: projError } = useCollection(
-  //   'projects',
-  //   ["createdBy.id", "==", user.uid],
-  //   ['createdAt', 'desc']
-  // )
-  // console.log('Found Projects: ', projects);
-
-  // let taskRef = collection(db, "projects", userDoc.id, "tasks", "taskId", id)
-  // let taskRef = collection(db, "projects", userDoc.id, "tasks")
-
-  // onSnapshot(taskRef, (querySnapshot) => {
-  //   querySnapshot.forEach((doc) => {
-  //     console.log("Id: ", doc.id, "Data: ", doc.data());
-  //   });
-  // });
-
-  // console.log(userDoc);
-  // need to query the document to update it via id/taskId?
 
   const handleSubmit = async (e) => {
     e.preventDefault()
 
+    console.log('Editing');
     // const updatedTask = {
     //   taskName,
     //   priority: priority.value,

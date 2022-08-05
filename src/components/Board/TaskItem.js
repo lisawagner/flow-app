@@ -17,13 +17,11 @@ const TaskItem = ({ name, priority, id, lane }) => {
   const { user } = useAuthContext()
   const taskBtnRef = useRef()
   
-
   const handleToggle = () => {
     setIsOpen(!isOpen)
   }
   
-
-  console.log('TaskItem: ', id);
+  // console.log('TaskItem: ', id);
 
   // const handleClickOutside = (e) => {
   //   if (taskBtnRef.current && !taskBtnRef.current.contains(e.target)) {
@@ -96,7 +94,6 @@ const TaskItem = ({ name, priority, id, lane }) => {
           id={id}
         />
       )}
-
 
     </div>
   )
