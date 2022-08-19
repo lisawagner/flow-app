@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# FLOW | Project Management Made Simple
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is in progress
 
 ## Available Scripts
 
